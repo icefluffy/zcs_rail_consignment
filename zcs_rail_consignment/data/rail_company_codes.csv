@@ -1,4 +1,6 @@
-Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,short full
+Unnamed: 0,"short
+name","full
+name",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,short full
 6,StL Holland,Stena Line Holland BV,NL,01/07/2004,01/07/2004,,,,,,x,,,,,http://www.stenaline.nl/ferry/,
 10,VR,VR-Yhtymä Oy,FI,30/06/1999,30/06/1999,,,,,,,,,x,,http://www.vr.fi/,
 12,TRFSA,Transfesa Logistics SA,ES,30/06/1999,30/06/1999,24/02/2023,,,,X,,,,,,http://www.transfesa.com/,
@@ -51,7 +53,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 72,IŽS,Infrastruktura Železnice Srbije,RS,27/05/2003,29/09/2003,01/09/2015,,,,,,x,,x,,http://www.zeleznicesrbije.com/,
 73,OSE,Organismos Sidirodromon Ellados,GR,30/06/1999,30/06/1999,,,,,,,x,x,,,http://www.ose.gr/,
 74,TRAFIKVERKET,Trafikverket,SE,06/02/2017,06/02/2017,,,,,,,x,,,,http://www.trafikverket.se/,
-75,TCDD Taşımacılık A.Ş.,"Türkiye Cumhuriyeti Devlet Demiryolları Taşımacılık AnonimŞirketi",TR,29/11/1999,29/11/1999,25/08/2017,,,,,,,,x,,http://www.tcddtasimacilik.gov.tr/,
+75,TCDD Taşımacılık A.Ş.,"Türkiye Cumhuriyeti Devlet Demiryolları Taşımacılık Anonim
+Şirketi",TR,29/11/1999,29/11/1999,25/08/2017,,,,,,,,x,,http://www.tcddtasimacilik.gov.tr/,
 76,BN,Bane NOR SF,NO,14/12/2001,22/05/2002,07/08/2018,,,,,,x,,,,https://www.banenor.no,
 77,FS EPA,Ferrovie dello Stato Italiane SpA EPA,IT,01/07/2005,18/10/2005,,,,,,x,,,,,http://www.fsitaliane.it/,
 78,HŽ-Infrastruktura,HŽ Infrastruktura d.o.o.,HR,28/02/2007,08/03/2007,,,,,,,x,,,,http://www.hzinfra.hr/,
@@ -84,7 +87,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 1033,CR holding,Chinese Railways-Holding,CN,20/05/2003,21/05/2003,,,,,,,x,x,,,http://www.chineserailways.com/,
 1051,PKP,Polskie Koleje Państwowe Spółka Akcyjna,PL,16/12/2003,15/01/2004,,,,,,,,x,,,http://www.pkp.pl/,
 1052,HOLDING BDZ,HOLDING BULGARIAN STATE RAILWAYS,BG,29/03/2005,04/04/2005,18/01/2011,,,,,,,x,,,http://holding.bdz.bg/,
-1055,MAV Co.,"MAV Hungarian State Railways Private company Limited byShares",HU,10/02/2025,13/02/2025,,,,,,,,X,,,http://www.mavcsoport.hu/,
+1055,MAV Co.,"MAV Hungarian State Railways Private company Limited by
+Shares",HU,10/02/2025,13/02/2025,,,,,,,,X,,,http://www.mavcsoport.hu/,
 1062,ŽPCG,Željeznički prevoz Crne Gore AD,ME,19/04/2011,19/04/2011,,,,,x,x,,,,,http://www.zcg-prevoz.me/,
 1065,CFARYM-T,Makedonski Železnici Transport AD Skopje,MK,05/10/2007,05/10/2007,,,,,x,x,,,,,http://mztransportad.com.mk/,
 1071,Renfe,Renfe Operadora,ES,17/12/2004,23/12/2004,,,,,,,,x,,,http://www.renfe.com/,
@@ -96,7 +100,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 1084,NS holding,N.V. Nederlandse Spoorwegen,NL,16/01/2004,16/01/2004,,,,,,,,x,,,http://www.ns.nl/,
 1085,SBB AG,Schweizerische Bundesbahnen,CH,27/06/2018,12/07/2018,,,,,,,,x,,,https://www.sbb.ch/en/home.html,
 1086,DSB holding,Danske Statsbaner-Holding,DK,30/06/1999,30/06/1999,,,,,,,x,x,,,http://www.dsb.dk/,
-1088,SNCB/NMBS,"Société nationale des chemins de fer Belges / NationaleMaatschappij der Belgische Spoorwegen",BE,07/02/2005,11/02/2005,,,,,,x,,,,,http://www.belgianrail.be/,
+1088,SNCB/NMBS,"Société nationale des chemins de fer Belges / Nationale
+Maatschappij der Belgische Spoorwegen",BE,07/02/2005,11/02/2005,,,,,,x,,,,,http://www.belgianrail.be/,
 1094,CP,"CP - Comboios de Portugal, E.P.E.",PT,10/01/2012,13/02/2012,,,,,,x,,x,,,http://www.cp.pt/,
 1120,JSC 'FPC',Joint Stock Company 'FEDERAL PASSENGER COMPANY',RU,01/09/2010,20/09/2010,,,,,,x,,,,,http://pass.rzd.ru/,
 1124,LTG Link,UAB LTG Link,LT,27/03/2019,28/03/2019,03/09/2020,,,,,X,,,,,litrail.lt,
@@ -174,7 +179,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 2180.0,DBCDE,DB Cargo AG,DE,11/10/2004,24/11/2004,10/06/2019,,,,x,,,,,,https://www.dbcargo.com/,
 2181.0,RCA,Rail Cargo Austria AG,AT,08/11/2004,24/11/2004,30/01/2025,,,,X,,,,,,http://www.railcargo.at/,
 2182.0,CFL cargo,CFL cargo SA,LU,02/03/2001,02/03/2001,13/05/2024,,,,X,,,,,,https://www.cfl-mm.lu/en-gb/organisation/cfl-cargo,
-2183.0,MIR,Mercitalia Rail,IT,02/11/2016,04/11/2016,,,,,x,,,,,,"http://www.fsitaliane.it/fsi/Il-Gruppo/Societ%C3%A0-del-Gruppo/Mercitalia-",
+2183.0,MIR,Mercitalia Rail,IT,02/11/2016,04/11/2016,,,,,x,,,,,,"http://www.fsitaliane.it/fsi/Il-
+Gruppo/Societ%C3%A0-del-Gruppo/Mercitalia-",
 2184.0,DBCNL,DB Cargo Nederland N.V.,NL,26/02/2003,21/05/2003,05/04/2016,,,,x,,,,,,http://nl.dbcargo.com/,
 2185.0,SBB Cargo,SBB CFF FFS Cargo,CH,30/09/2004,30/09/2004,,,,,x,,,,,,http://www.sbbcargo.com/,
 2186.0,DBCSC,DB Cargo Scandinavia A/S,DK,30/06/1999,30/06/1999,05/04/2016,,,,x,,,,,,http://dk.dbcargo.com/,
@@ -212,7 +218,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 2385.0,SBB CD,SBB Cargo Deutschland GmbH,DE,30/09/2004,30/09/2004,20/11/2025,,,,X,,,,,,,
 2387.0,CTB,Captrain Belgium NV,BE,23/04/2009,17/04/2009,16/06/2011,,,,x,,,,,,http://www.captrain.be/,
 2480.0,DB Fernverkehr,DB Fernverkehr AG,DE,29/10/2021,02/11/2021,27/01/2025,,,,,X,X,,,,http://www.deutschebahn.com/,
-2485.0,SBB CI,SBB Cargo Italia,IT,30/09/2004,30/09/2004,20/11/2025,,,,X,,,,,,"http://www.sbbcargo-international.com/it/sbb-cargo-italia-srl-mailand-i-218.html",
+2485.0,SBB CI,SBB Cargo Italia,IT,30/09/2004,30/09/2004,20/11/2025,,,,X,,,,,,"http://www.sbbcargo-international.com/it/sbb-
+cargo-italia-srl-mailand-i-218.html",
 2580.0,DB Regio,DB Regio AG,DE,02/11/2021,03/11/2021,,,,,,X,,,,,,
 2585.0,SBB CINT,SBB Cargo International,CH,27/05/2011,27/05/2011,20/11/2025,,,,X,,,,,,http://www.sbbcargo-international.com/,
 2800.0,TEKOL,TEKOL Sp z o.o.,PL,10/02/2022,14/02/2022,,,,,X,,,,,,https://tekol.pl/,
@@ -238,7 +245,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3018.0,THI,Thalys International,BE,30/06/1999,30/06/1999,,,,,,x,,,,,http://www.thalys.com/,
 3019.0,GFR,Grup Feroviar Român SA,RO,15/03/2004,17/05/2004,,,,,x,,,,,,http://gfr.ro/,
 3020.0,HGK,Häfen und Güterverkehr Köln AG,DE,09/01/2004,17/05/2004,08/11/2024,,,,x,,X,,,,http://www.hgk.de/,
-3021.0,EUROGATE Rail Hungary Zrt,"EUROGATE Rail Hungary Szolgáltató Zártkörűen MűködőRészvénytársaság",HU,31/03/2004,14/09/2004,11/01/2022,,,,X,,,,,,www.eurogate-rail.hu,
+3021.0,EUROGATE Rail Hungary Zrt,"EUROGATE Rail Hungary Szolgáltató Zártkörűen Működő
+Részvénytársaság",HU,31/03/2004,14/09/2004,11/01/2022,,,,X,,,,,,www.eurogate-rail.hu,
 3022,SNCC,Société Nationale des Chemins de Fer du Congo,CD,12/05/2004,17/05/2004,,,,,,,,,x,,http://sncc.cd/,
 3023,STLB,Steiermärkische Landesbahnen,AT,13/05/2004,17/05/2004,26/03/2012,,,,x,x,x,,,,http://stlb.at/,
 3024,MMV,Magyar Magánvasút Zrt.,HU,29/06/2004,14/09/2004,,,,,x,,,,,,http://www.mmv.hu/,
@@ -296,7 +304,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3081,ERS Railways,ERS Railways B.V.,NL,02/11/2005,21/11/2005,,,,,x,,,,,,http://www.ersrail.nl/,
 3083,TIM Rail,Tim Rail Eisenbahngesellschaft mbH,,,,,,10/08/2016,,,,,,,,,
 3084,HTRSN,HTRS Nederland BV,,,,,,23/06/2016,,,,,,,,,
-3085,CER HU,"CER Hungary Central European Railway Transport, Tradingand Service Co.",HU,09/06/2006,05/07/2006,27/06/2025,,,,X,,,,,,http://www.cer.hu/,
+3085,CER HU,"CER Hungary Central European Railway Transport, Trading
+and Service Co.",HU,09/06/2006,05/07/2006,27/06/2025,,,,X,,,,,,http://www.cer.hu/,
 3086,DBV-ITL,"DBV-ITL, s.r.o.",CZ,27/06/2006,11/08/2006,,,,,x,,,,,,www.dbv-itl.cz,
 3087,BASF SE,BASF Societas Europaea,DE,03/07/2006,11/07/2006,30/06/2025,,,,X,,X,,,,http://www.basf.com/,
 3088,SNCB,SNCB Holding Belgium National Railways,,,,,,31/12/2013,,,,,,,,,
@@ -327,7 +336,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3117,RC-CF TRANS,SC. RC-CF Trans SRL. BRASOV,RO,27/02/2008,10/03/2008,,,,,x,,,,,,http://www.rccf.ro/,
 3118,AG EMS,Aktien-Gesellschaft 'EMS',DE,10/04/2008,17/04/2008,,,,,,x,,,,,http://www.ag-ems.de/,
 3119,Masped Rail Cargo Zrt.,Masped Rail Cargo Magánvasút Zrt.,,,,,,01/10/2014,,,,,,,,,
-3120,BOBO Corporation,"BOBO Vehicle Repair, Industrial, Trading and SupplierCorporation",HU,08/05/2008,14/05/2008,,,,,,,,,,x,,
+3120,BOBO Corporation,"BOBO Vehicle Repair, Industrial, Trading and Supplier
+Corporation",HU,08/05/2008,14/05/2008,,,,,,,,,,x,,
 3121,RSCO,Rolling Stock Company S.A.,RO,14/05/2008,14/05/2008,,,,,,,,,,x,http://www.rsco.ro/,
 3123,Eurocom,Eurocom Zrt.,,,,,,31/12/2013,,,,,,,,,
 3124,TRAIN HUNGARY Kft.,TRAIN HUNGARY Magánvasút Kft.,HU,16/06/2008,25/07/2008,,,,,x,,,,,,http://www.trainhungary.hu/,
@@ -342,7 +352,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3133,PKPCI HU,PKP CARGO INTERNATIONAL HU Zrt.,HU,21/10/2008,14/11/2008,11/06/2020,,,,X,,,,,,www.pkpcargointernational.com,
 3134,RR,Regio Rail,,,,,,01/07/2014,,x,x,,,,,,
 3135,HanseCom,HanseCom GmbH,DE,08/01/2009,15/01/2009,,,,,,,,,,x,http://www.hansecom.com/,
-3136,PPMT Sp. z o.o. w Gdańsku,"Pomorskie Przedsiębiorstwo Mechaniczno-Torowe Sp. z o.o.w Gdańsku",PL,05/01/2009,16/01/2009,,,,,,,,,,x,http://www.ppmt.com.pl/,
+3136,PPMT Sp. z o.o. w Gdańsku,"Pomorskie Przedsiębiorstwo Mechaniczno-Torowe Sp. z o.o.
+w Gdańsku",PL,05/01/2009,16/01/2009,,,,,,,,,,x,http://www.ppmt.com.pl/,
 3137,Mávépcell,Mávépcell Mély-Magas-és Vasútépíto Kft.,,,,,,30/08/2014,,,,,,,,,
 3138,RCC-IT,Rail Cargo Carrier - Italy s.r.l.,IT,23/01/2009,23/01/2009,27/03/2025,,,,X,X,,,,,http://www.railcargocarrier.com/,
 3139,UTC AD,Unitranscom AD,BG,25/02/2009,17/03/2009,,,,,x,,,,,,,
@@ -390,7 +401,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3181,TFG,SC TRANSFEROVIAR GRUP SA,RO,19/02/2010,01/03/2010,,,,,x,,,,,,http://www.transferoviar.ro/,
 3182,N+N Litoměřice,"N+N - Konstrukce a dopravní stavby Litoměřice, s.r.o.",CZ,08/02/2010,01/03/2010,,,,,x,,,,,x,http://www.nanlitomerice.cz/,
 3183,PmHvy,Pieksämäen Höyryveturiyhdistys ry,FI,17/02/2010,01/03/2010,,,,,,,,,,x,http://www.pmk-hoyryveturiyhdistys.fi/,
-3184,KMOY,Keitele-Museo Oy,FI,17/02/2010,01/03/2010,,,,,,,,,,x,"http://www.aanekoski.fi/vapaa-aika/kulttuuri/museot/keitele-museo/",
+3184,KMOY,Keitele-Museo Oy,FI,17/02/2010,01/03/2010,,,,,,,,,,x,"http://www.aanekoski.fi/vapaa-
+aika/kulttuuri/museot/keitele-museo/",
 3185,ROFERSPED,S.C. ROFERSPED S.A.,RO,22/02/2010,08/03/2010,,,,,x,,,,,,http://www.rofersped.ro/,
 3186,Keyrail,Keyrail B.V.,,,,,,20/11/2017,,,,,,,,,
 3187,DBCFR,DB Cargo France SAS,FR,07/10/2005,21/08/2006,25/01/2022,,,,X,,,,,,https://fr.dbcargo.com/rail-fr-fr,
@@ -419,7 +431,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3211,TSZO S.A.,Tabor Szynowy Opole Spółka Akcyjna,PL,11/10/2010,18/10/2010,,,,,,,,,,x,http://taborszynowy.com.pl/,
 3212,KP,Kombinovani Prevoz d.o.o.,RS,26/10/2010,26/10/2010,,,,,x,,,,,,http://www.kprevoz.co.rs/,
 3213,HVV,Hamburger Verkehrsverbund GmbH,DE,26/10/2010,04/11/2010,,,,,,x,,,,,http://www.hvv.de/,
-3214,PNI SP. z o.o.,"Przedsiębiorstwo Napraw Infrastruktury Spółka zOgraniczoną Opdowiedzialnością",PL,29/10/2010,25/11/2010,,,,,,,,,,x,http://pni.net.pl/,
+3214,PNI SP. z o.o.,"Przedsiębiorstwo Napraw Infrastruktury Spółka z
+Ograniczoną Opdowiedzialnością",PL,29/10/2010,25/11/2010,,,,,,,,,,x,http://pni.net.pl/,
 3215,LNFF,Lineas (FF),BE,16/11/2010,25/11/2010,01/07/2018,,,,,,,,,x,http://www.lineas.be,
 3216,Trenitalia FR,Trenitalia France,FR,22/11/2010,25/11/2010,21/10/2021,,,,,X,,,,,https://trenitalia.com/trenitalia-france/,
 3217,GTF,SC GRUP TRANSPORT FEROVIAR SA,RO,21/01/2011,31/01/2011,,,,,x,,,,,,http://www.gfr.ro/,
@@ -574,7 +587,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3366,MBMR,MBM rail s.r.o.,CZ,12/11/2014,24/11/2014,,,,,x,,,,,,http://www.mbmr.cz/,
 3367,OT Rail,OT Rail Sp. z o.o.,PL,18/11/2014,24/11/2014,22/12/2015,,,,x,,,,,,http://landkol.eu/,
 3368,OCEANOGATE,OCEANOGATE Italia S.P.A.,IT,25/11/2014,01/12/2014,,,,,x,,,,,,http://www.oceanogateitalia.com/,
-3369,FEHÉRVILL-ÁM Kft,"FEHÉRVILL-ÁM Villamosenergia-ipari Szerelo, Kereskedelmi esSzolgaltato Korlatolt Felelossegu Tarsasag",HU,26/11/2014,05/12/2014,,,,,x,,,,,,,
+3369,FEHÉRVILL-ÁM Kft,"FEHÉRVILL-ÁM Villamosenergia-ipari Szerelo, Kereskedelmi es
+Szolgaltato Korlatolt Felelossegu Tarsasag",HU,26/11/2014,05/12/2014,,,,,x,,,,,,,
 3370,RRF,Rotterdam Rail Feeding B.V.,NL,10/12/2014,16/12/2014,,,,,x,,x,,,,http://www.railfeeding.com/,
 3371,LWB,Lubelski Wegiel Bogdanka S.A.,PL,12/12/2014,17/12/2014,,,,,,,x,,,x,http://www.lw.com.pl/,
 3372,SBTDT,Subterra a.s.,CZ,13/01/2015,28/01/2015,,,,,x,,,,,x,http://www.subterra.cz/,
@@ -596,7 +610,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3388,AO AK YRW,AO AK Yakutia Railways,RU,18/06/2015,08/07/2015,01/12/2016,,,,x,,,,,,,
 3389,OOO UKRFERRY,OOO Shipping Company UKRFERRY,UA,24/06/2015,29/06/2015,,,,,x,x,,,,,http://www.ukrferry.com/,
 3390,FERTAGUS,"FERTAGUS, Travessia do Tejo, Transportes, S.A.",PT,25/06/2015,08/07/2015,,,,,,x,,,,,http://www.fertagus.pt/,
-3391,SNCF Materiel,SNCF MOBILITES Materiel,FR,25/06/2015,26/08/2015,,,,,,,,,,x,"http://www.sncf.com/fr/partenaires/direction-materiel/",
+3391,SNCF Materiel,SNCF MOBILITES Materiel,FR,25/06/2015,26/08/2015,,,,,,,,,,x,"http://www.sncf.com/fr/partenaires/direction-
+materiel/",
 3392,highQ,highQ Computerlösungen GmbH,DE,01/07/2015,10/07/2015,,,,,,x,,,,,http://www.highQ.de/,
 3393,SVDE,SNCF Voyages Deutschland GmbH,DE,29/07/2015,19/08/2015,,,,,,x,,,,,http://de.voyages-sncf.com/de/,
 3394.0,Captrain Polska Sp. z o.o.,Captrain Polska Spotka 2 Ograniczona Odpowiedzialnoscia,PL,15/07/2015,29/07/2015,,,,,x,,,,,,http://www.captrain.pl/,
@@ -646,7 +661,9 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3437.0,Spedkol,DB Cargo Spedkol Sp. o z.z.,PL,20/04/2016,15/06/2016,28/07/2016,,,,x,,,,,,https://pl.dbcargo.com/rail-polska-pl/,
 3438.0,Sundström,Sundström Ab Oy,FI,25/04/2016,10/05/2016,,,,,x,,,,,,http://sundstroms.fi/,
 3439.0,JSK Sp Z.o.o.,Jastrzębska Spółka Kolejowa Sp. z o.o.,PL,28/04/2016,10/05/2016,,,,,x,,,,,,http://www.jsk.pl/,
-3440.0,evb Infrastruktur,"Eisenbahnen und Verkehrsbetriebe Elbe-Weser GmbH-Infrastruktur",DE,11/05/2016,26/05/2016,,,,,,,x,,,,"http://www.evb-elbe-weser.de/Infrastruktur.5.0.html",
+3440.0,evb Infrastruktur,"Eisenbahnen und Verkehrsbetriebe Elbe-Weser GmbH-
+Infrastruktur",DE,11/05/2016,26/05/2016,,,,,,,x,,,,"http://www.evb-elbe-
+weser.de/Infrastruktur.5.0.html",
 3441.0,LO,Liberty Ostrava a.s.,CZ,11/05/2016,27/06/2016,02/06/2020,,,,,,X,,,X,https://libertyostrava.cz/,
 3442.0,VCS,Vápenka Čertovy schody a.s.,CZ,17/05/2016,19/05/2016,15/04/2024,,,,X,,,,,X,https://www.lhoist.com/en,
 3443.0,PIMK Rail,PIMK Rail PLS,BG,18/05/2016,26/05/2016,,,,,x,,,,,,,
@@ -680,7 +697,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3471.0,TR,TR Trans Rail AG,CH,10/10/2016,04/11/2016,03/09/2020,,,,X,X,,,,,http://www.tr-transrail.ch/,
 3472.0,HLG,Holzlogistik & Güterbahn GmbH,DE,12/10/2016,02/11/2016,,,,,x,,,,,,http://www.hlg-bebra.de/,
 3473.0,EXFO,Express Forwarding S.R.L.,RO,18/10/2016,10/11/2016,,,,,x,,,,,,,
-3474.0,RCL-GR,"Rail Cargo Logistics - Goldair International Rail Transshipmentand Logistics SA",GR,19/10/2016,21/10/2016,27/03/2025,,,,X,X,,,,X,http://www.railcargolg.com/en/,
+3474.0,RCL-GR,"Rail Cargo Logistics - Goldair International Rail Transshipment
+and Logistics SA",GR,19/10/2016,21/10/2016,27/03/2025,,,,X,X,,,,X,http://www.railcargolg.com/en/,
 3475.0,HELPORT,Port of Helsinki LTD,FI,21/10/2016,28/10/2016,,,,,x,,x,,,,http://www.portofhelsinki.fi,
 3476.0,KBSA,Kolej Bałtycka S.A.,PL,24/10/2016,26/10/2016,,,,,x,,,,,,http://www.kolejbaltycka.pl/,
 3477.0,Port of Pori,Porin Satama Oy,FI,24/10/2016,26/10/2016,,,,,x,,x,,,,http://www.portofpori.fi,
@@ -729,7 +747,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3520,ZAO North Eastern Asia,ZAO Railway Corporation 'North Eastern Asia' Jilin Province,CN,30/03/2017,25/09/2017,,,,,x,,,,,,,
 3521,AWR,AWRail,IT,31/03/2017,06/04/2017,,,,,x,,,,,,,
 3522,IGR,"I.G.Rail, spol. s.r.o.",SK,03/04/2017,09/05/2017,19/03/2018,,,,x,,,,,,,
-3523,DS VASUT Kft,"DS VASÚT Vasúti Szolgáltató és Fuvarozó KorlátoltFelelősségű Társaság",HU,03/04/2017,22/05/2017,,,,,x,,,,,,,
+3523,DS VASUT Kft,"DS VASÚT Vasúti Szolgáltató és Fuvarozó Korlátolt
+Felelősségű Társaság",HU,03/04/2017,22/05/2017,,,,,x,,,,,,,
 3524,Arriva SK,Arriva Service s.r.o.,SK,10/04/2017,21/04/2017,,,17/11/2023,,,X,,,,,http://www.arriva.sk,
 3525,FER,Ferrovie Emilia Romagna,IT,12/04/2017,21/04/2017,,,,,,,x,,,,http://www.fer.it,
 3526,ABRN,Abellio Rail NRW GmbH,DE,12/04/2017,06/06/2017,,,,,x,,,,,,http://www.abellio.de,
@@ -775,7 +794,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3566,ELV,Eisenbahnlogistik Vienenburg,DE,22/01/2018,26/01/2018,,,,,x,,,,,,http://www.eisenbahnlogistik-vienenburg.de/,
 3567,CM Sp. z o.o.,CARGO Master Sp. z o.o.,PL,26/01/2018,01/02/2018,,,,,x,,,,,,,
 3568,BL24,Bahnlogistik24 GmbH,DE,02/02/2018,26/02/2018,,,,,x,,,,,,http://www.bahnpersonal24.de/Bahnlogistik24/,
-3569,MEDWAY,"Medway - operador ferroviário et logistico de mercadorias sasucursal en Espana",PT,06/02/2018,16/02/2018,,,,,x,,,,,,,
+3569,MEDWAY,"Medway - operador ferroviário et logistico de mercadorias sa
+sucursal en Espana",PT,06/02/2018,16/02/2018,,,,,x,,,,,,,
 3570,REGIO CALATORI,REGIO CALATORI S.R.L.,RO,14/02/2018,14/03/2018,,,,,,x,,,,,https://regiocalatori.ro/,
 3571,"OAO ""PK ""ZhDS""""",OAO Zheldorservice,MD,12/02/2018,02/03/2018,,,,,x,,,,,,,
 3572,Ferrovie del Sud Est,Ferrovie del Sud Est e Servizi Automobilistici s.r.l.,IT,16/02/2018,21/02/2018,,,,,x,,,,,,https://www.fseonline.it/,
@@ -820,11 +840,13 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3611,Port of Antwerp,Havenbedrijf Antwerpen NV van publiek recht,BE,04/10/2018,04/10/2018,,,,,x,,,,,,http://www.portofantwerp.com,
 3612,K-Rail,K-Rail GmbH,de,09/10/2018,10/10/2018,,,,,x,,,,,,https://www.netzwerk-bahnen.de,
 3613,STB,Steiermarkbahn und Bus GmbH,AT,11/10/2018,18/10/2018,18/12/2019,,,,,X,,,,,http://www.steiermarkbahn.at,
-3614,ZÁHONY-PORT Co,"ZÁHONY-PORT Záhonyi Logistics and Load Handling ServicingCompany",HU,16/10/2018,19/10/2018,,,,,X,,,,,,https://zahony-port.hu/en_zp21.html,
+3614,ZÁHONY-PORT Co,"ZÁHONY-PORT Záhonyi Logistics and Load Handling Servicing
+Company",HU,16/10/2018,19/10/2018,,,,,X,,,,,,https://zahony-port.hu/en_zp21.html,
 3615,RF,Railflex GmbH,DE,17/10/2018,19/10/2018,,,,,x,,,,,,http://www.railflex.de,
 3616,LE s.r.o.,Leo Express s.r.o.,CZ,18/10/2018,19/10/2018,28/08/2019,,,,X,X,,,,,WWW.leoexpress.com,
 3617,Adriafer,Adriafer s.r.l.,IT,22/10/2018,24/10/2018,,,,,x,,,,,,http://www.adriafer.com/,
-3618,Depol sp.z.o.o.,"Przedsiębiorstwo Obrotu Surowcami Wtórnymi „DEPOL” Sp.z o.o.",PL,25/05/2018,25/10/2018,,,,,x,,,,,,http://www.depol.com.pl/,
+3618,Depol sp.z.o.o.,"Przedsiębiorstwo Obrotu Surowcami Wtórnymi „DEPOL” Sp.
+z o.o.",PL,25/05/2018,25/10/2018,,,,,x,,,,,,http://www.depol.com.pl/,
 3619,"""TBD-TP"" JSC","""TBD-Tovarni Prevozi"" JSC",BG,25/10/2018,05/11/2018,,,,,x,,,,,,,
 3620,UIRR scrl,Union Internationale pour le Transport Combiné Rail-Route,BE,26/10/2018,05/11/2018,,,,,x,,,,,,http://www.uirr.com/,
 3621,L&W,Laeger & Wöstenhöfer GmbH & Co.KG,DE,26/10/2018,05/11/2018,,,,,x,,,,,,https://lundw-privatbahn.de/,
@@ -914,10 +936,13 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3707,DBCSI,DB Cargo AG.,DE,10/06/2019,11/06/2019,,,23/05/2025,,X,,,,,X,http://www.dbcargo.com/ecosolutions,
 3708,Eurailscout,Eurailscout Inspection & Analysis B.V.,NL,11/06/2019,12/06/2019,,,,,,,X,,,X,http://www.eurailscout.com/,
 3709,EZ Praha,Elektrizace železnic Praha a.s,CZ,11/06/2019,12/06/2019,,,,,X,,,,,X,www.elzel.cz,
-3710,MAV FKG Kft.,"MAV FKG Felepitmenykarbantarto es Gepjavito KorlatoltFelelossegu Tarsasag",HU,11/06/2019,12/06/2019,,,,,X,,,,,,"https://www.mavcsoport.hu/mav-fkg/bemutatkozas-mav-fkg-kft",
+3710,MAV FKG Kft.,"MAV FKG Felepitmenykarbantarto es Gepjavito Korlatolt
+Felelossegu Tarsasag",HU,11/06/2019,12/06/2019,,,,,X,,,,,,"https://www.mavcsoport.hu/mav-
+fkg/bemutatkozas-mav-fkg-kft",
 3711,CSP Logitren,CSP Logitren SA,ES,26/06/2019,28/06/2019,15/11/2023,,,,X,,,,,,http://www.logitren.es,
 3712,GX Solutions,GX Solutions a.s.,SK,26/06/2019,28/06/2019,,,,,,,,,,X,http://www.gxsolutions.sk/,
-3713,RPB,Railport Brabant BV,NL,09/07/2019,11/07/2019,,,,,X,,X,,,,"http://www.gvtintermodal.com/terminals/railport-brabant",
+3713,RPB,Railport Brabant BV,NL,09/07/2019,11/07/2019,,,,,X,,X,,,,"http://www.gvtintermodal.com/terminals/railport-
+brabant",
 3714,KARPIEL,KARPIEL Sp. z. o.o.,PL,24/07/2019,01/08/2019,,,,,X,,,,,X,http://karpiel.info.pl/,
 3715,TRAINSPEED,TRAINSPEED Sp. z. o.o.,PL,24/07/2019,01/08/2019,,,,,X,,,,,,http://kolej.trainspeed.eu,
 3716,LTE AT,LTE Austria GmbH,AT,25/07/2019,13/08/2019,,,,,X,,,,,,www.LTE-group.eu,
@@ -1017,7 +1042,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 3811,Mertzmix,Mertzmix GmbH & Co. KG,DE,02/04/2020,03/04/2020,,,,,X,,,,,X,www.mertzmix.de,
 3812,Budamar,Budamar Logistics a.s.,SK,03/04/2020,09/04/2020,,,,,X,,,,,X,,
 3813,Helrom,Helrom GmbH,DE,09/04/2020,09/04/2020,,,,,X,,,,,,www.helrom.com,
-3814,OSW,"Omnibusbetrieb Siegfried Wilhelm Inhaber Johannes Wilhelme.K.",DE,09/04/2020,09/04/2020,,,,,,X,,,,X,https://www.swilhelm-reisen.de/,
+3814,OSW,"Omnibusbetrieb Siegfried Wilhelm Inhaber Johannes Wilhelm
+e.K.",DE,09/04/2020,09/04/2020,,,,,,X,,,,X,https://www.swilhelm-reisen.de/,
 3815,TKP Silesia,TKP Silesia Spolka z ograniczona odpowiedzialnoscia Sp. K.,PL,09/04/2020,09/04/2020,,,,,X,,,,,,http://tkpsilesia.pl/,
 3816,Budamar Innovations,Budamar Innovations a.s.,SK,09/04/2020,09/04/2020,,,,,X,,,,,,www.budamar.sk,
 3817,DVB,Dresdner Verkehrsbetriebe AG,DE,09/04/2020,09/04/2020,,,,,,X,,,,,https://www.dvb.de/,
@@ -1387,9 +1413,11 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 4183.0,NIAG,Niederrheinische Verkehrsbetriebe Aktiengesellschaft NIAG,DE,10/10/2018,12/10/2018,08/11/2024,,,,x,,X,,,,https://www.niag-online.de,
 4184.0,NRS,Nordic Rail Service GmbH,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.nordic-rail-service.de,
 4185.0,OHE,Osthannoversche Eisenbahnen AG,DE,10/10/2018,12/10/2018,08/11/2024,,,,x,,X,,,,https://www.ohe-transport.de,
-4186.0,ORME,"On Rail - Gesellschaft für Eisenbahnausrüstung und ZubehörmbH",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.on-rail.com,
+4186.0,ORME,"On Rail - Gesellschaft für Eisenbahnausrüstung und Zubehör
+mbH",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.on-rail.com,
 4187.0,ORWU,On Rail Gesellschaft für Vermietung und Verwaltung,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.orv-moers.de,
-4188.0,OVEG,"Ostbayerische Verwertungs und Energieerzeugungs Gmbh(OVEG)",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.z-m-s.de,
+4188.0,OVEG,"Ostbayerische Verwertungs und Energieerzeugungs Gmbh
+(OVEG)",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.z-m-s.de,
 4189.0,PCMH,PETROCHEM Mineralöl- Handels Gmbh,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.petrochem.de,
 4190.0,,,DE,10/10/2018,12/10/2018,,,01/01/2000,,X,,,,,,https://www.pressnitztalbahn.com,
 4191.0,RADVE,RailAdventure GmbH,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.railadventure.de,
@@ -1401,7 +1429,8 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 4197.0,SBAU,Schweerbau GmbH & Co.KG,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.schweerbau.de,
 4198.0,SCKL,Schröder und Klaus GmbH und Co. KG,DE,10/10/2018,12/10/2018,,,,,x,,,,,,,
 4199.0,SESAF,SES Aus- und Fortbildung e.K.,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.ses-bahn.de,
-4200.0,SFH,"Schienenfahrzeuge Export-Import Handelsgesellschaft mbH -SFH",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.schienenfahrzeuge.de,
+4200.0,SFH,"Schienenfahrzeuge Export-Import Handelsgesellschaft mbH -
+SFH",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.schienenfahrzeuge.de,
 4201.0,SGL,SGL-Schienen Gueter Logistik GmbH,DE,10/10/2018,12/10/2018,02/12/2019,,,,X,,,,,,https://www.sgl-net.de,
 4202.0,SKLUS,SKL Umschlageservice,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.skl-umschlagservice.de,
 4203.0,SOEG,Sächsisch-Oberlausitzer Eisenbahngesellschaft mbH,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.soeg-zittau.de,
@@ -1428,10 +1457,12 @@ Unnamed: 0,"shortname","fullname",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,
 4226.0,ZAWCO,Zweckverband für Abfallwirtschaft in Nordwest-Oberfranken,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.zaw-coburg.de,
 4227.0,ZBAU,Zürcher Bau GmbH,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.zuercher.de,
 4228.0,ZPR,Zellstoff und Papierfabrik Rosenthal GmbH,DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.zpr.de,
-4229.0,ZVA,"Zweckverband Abfallwirtschaft Stadt Erlangen - LandkreisErlangen-Höchstadt",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.zva-erlangen.de,
+4229.0,ZVA,"Zweckverband Abfallwirtschaft Stadt Erlangen - Landkreis
+Erlangen-Höchstadt",DE,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.zva-erlangen.de,
 4230.0,CTVSA,Cementos Tudela Veguin S.A.,ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.cementostudelaveguin.com,
 4231.0,PCVSA,"Pecovasa Renfe Mercancias, Sociedad Mercantil Estatal, SA",ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.pecovasarenfe.com,
-4232.0,SEMAT,"SOCIEDAD DE ESTUDIOS Y EXPLOTACION DEMATERIALAUXILIAR DE TRANSPORTES, S.A.",ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.semat.es,
+4232.0,SEMAT,"SOCIEDAD DE ESTUDIOS Y EXPLOTACION DE
+MATERIALAUXILIAR DE TRANSPORTES, S.A.",ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.semat.es,
 4233.0,TRAMESA,TRANSPORTES MIXTOS ESPECIALES SA - TRAMESA,ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.tramesa.com,
 4234.0,VTGE,VTG Rail Europe GmbH-Sucursal en España,ES,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.vtg.com,
 4235.0,AMAL,Arcelor Atlantique et Lorraine,FR,10/10/2018,12/10/2018,,,,,x,,,,,,https://www.arcelormittal.com,
@@ -1637,7 +1668,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5038,SB,Saarbahn GmbH,DE,10/03/2022,10/03/2022,,,,,,X,,,,X,https://www.saarbahn.de/,
 5039,OOC Oss,OCC Rail B.V.,NL,10/03/2022,10/03/2022,12/04/2023,,,,X,,,,,,https://www.ooc.nl/,
 5040,MTA,Metrans Adria kontejnerski promet d.o.o.,SI,14/03/2022,15/03/2022,,,,,X,,,,,,https://metrans.eu/,
-5041,JadeWeserPort,"Container Terminal Wilhelmshaven JadeWeserPort-Marketing GmbH & Co. KG",DE,15/03/2022,25/03/2022,,,,,,,X,,,,https://www.jadeweserport.de/,
+5041,JadeWeserPort,"Container Terminal Wilhelmshaven JadeWeserPort-
+Marketing GmbH & Co. KG",DE,15/03/2022,25/03/2022,,,,,,,X,,,,https://www.jadeweserport.de/,
 5042,Cabooter Greenport,Cabooter Railterminal Greenport Venlo B.V.,NL,25/03/2022,01/04/2022,,,,,X,,,,,,https://cabootergroup.com/,
 5043,NTS AB,Nordic Tamping Service AB,SE,25/03/2022,01/04/2022,28/11/2024,,,,,,X,,,X,www.nts-ab.se,
 5044,Atoumod,Syndicat Mixte Atoumod,FR,25/03/2022,01/04/2022,,,,,,X,,,,X,,
@@ -1674,7 +1706,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5075,LTE IT,LTE Italia S.r.l.,IT,07/06/2022,09/06/2022,,,,,X,,,,,,www.LTE-group.eu,
 5076,KOL System,KOL-System Ciezak Spolka Jawna,PL,07/06/2022,09/06/2022,,,,,,,,,,X,,
 5077,PTMKZ,Pomorskie Towarzystwo Milosnikow Kolei Zelaznych,PL,07/06/2022,09/06/2022,13/06/2022,,,,X,X,X,,,,,
-5078,East West Intermodal,"East West Intermodal Logistics Service Provider privateLimited Company",HU,07/06/2022,09/06/2022,,,,,,,,,,X,,
+5078,East West Intermodal,"East West Intermodal Logistics Service Provider private
+Limited Company",HU,07/06/2022,09/06/2022,,,,,,,,,,X,,
 5079,RSA,Boliden Milneral AB,SE,07/06/2022,09/06/2022,,,,,X,,,,,X,,
 5080,PKP Energetyka,PKP Energetyka Spolka Akcyjna,PL,07/06/2022,09/06/2022,,,,,,,,,,X,,
 5081,Kotka,Kotkan Kaupunki (city of Kokta Finland),FI,09/06/2022,10/06/2022,,,,,X,,X,,,X,www.kotka.fi,
@@ -1691,7 +1724,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5092,Kombinirani prijevoz,Kombinirani prijevoz d.o.o.,HR,09/08/2022,11/08/2022,,,,,X,,,,,,https://kprijevoz.com/,
 5093,Bahnkonzept,Bahnkonzept GmbH Deutschland,DE,05/08/2022,08/08/2022,,,,,,,,X,,,,
 5094,RIN,Regio Infra Nord-Ost GmbH & Co. KG,DE,05/08/2022,08/08/2022,,,,,,,X,,,,,
-5095,TLL Sp. z o.o. Sp.K,"TLL Spolka z ograniczona odpowiedzialnoscia SpolkaKomandytowa",PL,08/08/2022,11/08/2022,,,,,,,,,,x,,
+5095,TLL Sp. z o.o. Sp.K,"TLL Spolka z ograniczona odpowiedzialnoscia Spolka
+Komandytowa",PL,08/08/2022,11/08/2022,,,,,,,,,,x,,
 5096,RBP GmbH,RBP Rheinische Bahnpersonal- und Verkehrsgesellschaft mbH,DE,16/08/2022,16/08/2022,,,,,X,X,,,,,https://www.rbp-bahn.de/,
 5097,UTL AG,Umwelt- und Transportlogistik AG,CH,17/08/2022,18/08/2022,,,,,X,,,,,,https://www.utl-ag.ch/,
 5098,KPM,Kombinovani Prevoz Montenegro DOO,ME,18/08/2022,22/08/2022,,,,,X,,,,,,,
@@ -1712,9 +1746,11 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5113,LBE,LBE Logistics,FR,10/10/2022,10/10/2022,,,,,X,,,,,X,,
 5114,LRW,LOGI Railway,FR,10/10/2022,10/10/2022,,,,,X,,,,,,,
 5115,SPL,SPL EisenbahnVerkehr GmbH,DE,10/10/2022,10/10/2022,,,,,X,,,,,,https://www.spl-ev.de/,
-5116,Altrans Sp. J.,"Altrans Koczerski I., Kobierecki Z., Miloch A., Sarzynski P.,Spolka Jawna.",PL,13/10/2022,18/10/2022,,,,,,,,,,X,http://www.altrans.wroc.pl/RODO.html,
+5116,Altrans Sp. J.,"Altrans Koczerski I., Kobierecki Z., Miloch A., Sarzynski P.,
+Spolka Jawna.",PL,13/10/2022,18/10/2022,,,,,,,,,,X,http://www.altrans.wroc.pl/RODO.html,
 5117,INFRANORD,Infranord AB,SE,18/10/2022,19/10/2022,,,,,X,,,,,X,https://www.infranord.se/,
-5118,ATM BG DOO NOVI BEOGRAD,"ATM BG LIMITED LIABILITY CIE FOR AUTOMATION, ENERGYAND MEASUREMENT TECHNIQUES, BELGRADE (NOVI",RS,18/10/2022,19/10/2022,,,,,X,X,X,,,X,http://www.atmbg.rs/,
+5118,ATM BG DOO NOVI BEOGRAD,"ATM BG LIMITED LIABILITY CIE FOR AUTOMATION, ENERGY
+AND MEASUREMENT TECHNIQUES, BELGRADE (NOVI",RS,18/10/2022,19/10/2022,,,,,X,X,X,,,X,http://www.atmbg.rs/,
 5119,ROP,Rail Operations SRL,RO,20/10/2022,28/10/2022,,,,,X,,,,,,,
 5120,Fairjungle,Fairjungle SAS,FR,20/10/2022,28/10/2022,,,,,,,,,,X,,
 5121,SWO,Stadtwerke Osnabruck AG,DE,20/10/2022,28/10/2022,,,,,,,X,,,,https://www.stadtwerke-osnabrueck.de/ehb,
@@ -1747,7 +1783,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5148,RNV,DB RegioNetz Verkehrs GmbH,DE,15/12/2022,16/01/2023,13/02/2023,,,,,X,,,,,https://www.deutschebahn.com/de/,
 5149,GYSEV CARGOROM,GYSEV CARGOROM srl,RO,10/01/2023,19/01/2023,,,,,X,,,,,,,
 5150,TiB,Tag i Bergslagen AB,SE,10/01/2023,19/01/2023,,,,,,X,,,,,https://www.tagibergslagen.se/,
-5151,JVM,"Statens Maritima och Transporthistoriska MuseerJarnvagsmuseet",SE,10/01/2023,19/01/2023,,,,,,X,,,,,https://www.jarnvagsmuseet.se/,
+5151,JVM,"Statens Maritima och Transporthistoriska Museer
+Jarnvagsmuseet",SE,10/01/2023,19/01/2023,,,,,,X,,,,,https://www.jarnvagsmuseet.se/,
 5152,Region Auvergne Rhone Alpes,Region  Auvergne Rhone Alpes,FR,10/01/2023,19/01/2023,,,,,,X,X,,,X,https://www.auvergnerhonealpes.fr/,
 5153,RATH Fleet,RATH Fleet B.V.,NL,10/01/2023,19/01/2023,,,,,,,,,,X,https://www.rath-gruppe.de/,
 5154,NRFAB,Nordic Re-Finance AB,SE,10/01/2023,19/01/2023,,,,,,,,,,X,https://www.nordicrefinance.se/,
@@ -1855,7 +1892,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5256,BOB,Bayerische Oberlandbahn GmbH,DE,17/07/2023,20/07/2023,,,,,,X,,,,,https://www.brb.de/,
 5257,GRS GmbH,Graf Railservice GmbH,AT,18/07/2023,20/07/2023,,,,,X,,,,,X,,
 5258,Zubacka,Zubacka provoz s.r.o.,CZ,18/07/2023,20/07/2023,,,,,,X,,,,,http://www.zubacka.cz/,
-5259,PJSC Kryukovsky RCBW,"Kryukovsky Railway Car Building Works Public Joint StockCompany",UA,21/07/2023,02/08/2023,,,,,,,,,,X,,
+5259,PJSC Kryukovsky RCBW,"Kryukovsky Railway Car Building Works Public Joint Stock
+Company",UA,21/07/2023,02/08/2023,,,,,,,,,,X,,
 5260,VIAS,VIAS Y CONSTRUCCIONES SA,ES,01/08/2023,02/08/2023,,,,,,,X,,,X,https://www.vias.es/html/Nacional.html,
 5261,Train Europe Kft.,Train Europe Korlatolt Felelossegu Tarsasag,HU,01/08/2023,02/08/2023,,,,,X,,,,,,,
 5262,APROPORT,CCI Metropole de Bourgogne,FR,01/08/2023,02/08/2023,,,,,X,,,,,,https://www.aproport.com/index.html,
@@ -1898,7 +1936,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5299,NAH.SH,Nahverkehrsverbund Schleswig -Holstein GmbH,DE,30/10/2023,31/10/2023,28/11/2025,,,,,X,,,,,,
 5300,FEG,Freiberger Eisenbahngesellschaft mbH,DE,03/11/2023,17/11/2023,03/03/2025,,,,,X,,,,,https://www.freiberger-eisenbahn.de/,
 5301,CRX,CRX Software Netherlands B.V.,NL,14/11/2023,17/11/2023,,,,,,,,,,X,www.railcube.com,
-5302,EHB,"EHB Eisenbahn- und Hafenbetriebsgesellschaft RegionOsnabruck mbH",DE,14/11/2023,17/11/2023,04/12/2025,,,,X,,X,,,,https://www.stadtwerke-osnabrueck.de/ehb,
+5302,EHB,"EHB Eisenbahn- und Hafenbetriebsgesellschaft Region
+Osnabruck mbH",DE,14/11/2023,17/11/2023,04/12/2025,,,,X,,X,,,,https://www.stadtwerke-osnabrueck.de/ehb,
 5303,DBST,DB Systemtechnik GmbH,DE,14/11/2023,17/11/2023,,,,,,,,,,X,,
 5304,S2TF,S2TF Services de Transports et Travaux Ferroviaires,FR,15/11/2023,17/11/2023,,,,,X,,X,,,,,
 5305,RTH Kft,Rail Transport Hungary Korlatolt felelossegu tarsasag,HU,17/11/2023,21/11/2023,,,,,X,,,,,,www.rthkft.hu,
@@ -2026,7 +2065,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5427,SCANR,Scanrail AB,SE,28/03/2024,29/03/2024,,,,,,,,,,X,,
 5428,STS logistic,STS logistic Sp z o.o.,PL,28/03/2024,29/03/2024,,,,,X,,,,,X,https://clip-group.com/,
 5429,TMR SA,Transports de Martigny et Regions SA,CH,28/03/2024,29/03/2024,,,,,X,X,,,,,tmrsa.ch,
-5430,APDL,"Administração dos Portos do Douro, Leixões e Viana doCastelo, S.A.",PT,28/03/2024,29/03/2024,,,,,X,,X,,,X,https://www.apdl.pt/,
+5430,APDL,"Administração dos Portos do Douro, Leixões e Viana do
+Castelo, S.A.",PT,28/03/2024,29/03/2024,,,,,X,,X,,,X,https://www.apdl.pt/,
 5431,CTL,Cinerites Transport et Logistique,FR,28/03/2024,29/03/2024,,,,,X,,,,,X,https://www.cinerites.fr/,
 5432,ART,ALTMANN RAIL TRACTION Srl,IT,28/03/2024,29/03/2024,,,,,X,,,,,,,
 5433,JAXAN KOLEJ,JAXAN KOLEJ sp. z o.o.,PL,29/03/2024,29/03/2024,,,,,X,,,,,,,
@@ -2036,7 +2076,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5437,Max Bogl TuG,Max Bogl TuG Transport und Gerate GmbH &Co. KG,DE,11/04/2024,15/04/2024,,,,,,,,,,X,,
 5438,RRT Kouvola,RRT Kouvola Oy 6 Railgate Finland,FI,11/04/2024,15/04/2024,,,,,X,,,,,X,,
 5439,NVBW,Nahverkehrsgesellschaft Baden-Wurttemberg mbH,DE,11/04/2024,15/04/2024,,,,,X,,,,,X,https://www.nvbw.de/,
-5440,DUK Dorpen,"Dorpener Umschlaggesellschaft fur den kombiniertenVerkehr mbH",DE,15/04/2024,18/04/2024,,,,,X,,,,,X,https://dukdoerpen.de/,
+5440,DUK Dorpen,"Dorpener Umschlaggesellschaft fur den kombinierten
+Verkehr mbH",DE,15/04/2024,18/04/2024,,,,,X,,,,,X,https://dukdoerpen.de/,
 5441,ZLT,zl-traktion GmbH,DE,15/04/2024,18/04/2024,,,,,X,,,,,,,
 5442,RCM GmbH,RCM Rail Care and Management GmbH,DE,15/04/2024,18/04/2024,30/07/2024,,,,X,,,,,X,https://rcm-rail.com,
 5443,HELM,HELM AG,DE,15/04/2024,18/04/2024,,,,,X,,,,,X,https://www.helmag.com/,
@@ -2122,7 +2163,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5523,S-Rail HU,S-Rail HU Kft.,HU,08/10/2024,10/10/2024,,,,,X,,,,,,https://www.setg.at/,
 5524,APSS,Adminitração de Portos de Setubal e Sesimbra,PT,10/10/2024,14/10/2024,,,,,X,,,,,X,https://www.portodesetubal.pt/apss,
 5525,SR SK,S-Rail SK s.r.o.,SK,10/10/2024,14/10/2024,,,,,X,,,,,,https://www.setg.at/,
-5526,NMEG,"Neukölln-Mittenwalder Eisenbahn-GesellschaftAktiengesellschaft in Berlin",DE,11/10/2024,14/10/2024,,,,,,,X,,,,,
+5526,NMEG,"Neukölln-Mittenwalder Eisenbahn-Gesellschaft
+Aktiengesellschaft in Berlin",DE,11/10/2024,14/10/2024,,,,,,,X,,,,,
 5527,Freshrail,FFWD Fresh Rail Holding B.V.,NL,16/10/2024,25/10/2024,,,,,X,,,,,X,,
 5528,dream,dream mobility,DE,16/10/2024,25/10/2024,,,,,,X,,,,,,
 5529,VUKV,VUKV a.s.,CZ,16/10/2024,25/10/2024,,,,,X,X,,,,X,https://www.vukv.cz/,
@@ -2192,7 +2234,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5593,SI Cargo HU,SI Cargo Hungaria Kft.,HU,27/01/2025,27/01/2025,,,,,X,,,,,,,
 5594,KVG AG,Kasseler Verkehrsgesellschaft AG,DE,27/01/2025,31/01/2025,,,,,X,X,X,,,,,
 5595,MTRBE,Metrans Rail Belgium B.V,BE,28/01/2025,31/01/2025,,,,,X,X,,,,,,
-5596,"KVVH GmbH, GB Rheinhäfen","Karlsruher Versorgungs-, Verkehrs- und Hafen GmbH,Geschäftsbereich Rheinhäfen",DE,04/02/2025,06/02/2025,,,,,X,,,,,X,https://www.rheinhafen.de/,
+5596,"KVVH GmbH, GB Rheinhäfen","Karlsruher Versorgungs-, Verkehrs- und Hafen GmbH,
+Geschäftsbereich Rheinhäfen",DE,04/02/2025,06/02/2025,,,,,X,,,,,X,https://www.rheinhafen.de/,
 5597,RMCon Int,Rail Management Consultants International GmbH,DE,06/02/2025,13/02/2025,,,,,,,X,,,X,https://rmcon-int.de/,
 5598,PB,Portbase,NL,06/02/2025,13/02/2025,,,,,,,X,,,X,www.portbase.com,
 5599,BS SA,Banco de Sabadell S.A.,ES,10/02/2025,13/02/2025,,,,,,,,,,X,,
@@ -2224,7 +2267,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 5625,Zigs,ZigsXpress GmbH,DE,20/03/2025,21/03/2025,,,,,X,,,,,,,
 5626,RTX,RailTech OU,LV,20/03/2025,21/03/2025,,,,,X,,,,,,https://rail-tech.io/,
 5627,Aecon,Aecon AB,SE,20/03/2025,21/03/2025,,,,,,,X,,,X,,
-5628,MEDWAY France,"MEDWAY – OPERADOR FERROVIÁRIO DE MERCADORIAS, S.A.SUCCURSALE EN FRANCE",FR,20/03/2025,21/03/2025,,,,,X,,,,,,https://www.medway-iberia.com/fr,
+5628,MEDWAY France,"MEDWAY – OPERADOR FERROVIÁRIO DE MERCADORIAS, S.A.
+SUCCURSALE EN FRANCE",FR,20/03/2025,21/03/2025,,,,,X,,,,,,https://www.medway-iberia.com/fr,
 5629,COS,CO Schweisstechnik GmbH,DE,27/03/2025,28/03/2025,,,,,,,X,,,X,,
 5630,Proxima AC,Proxima AssetCo,FR,27/03/2025,28/03/2025,,,,,,X,X,,,,https://www.antin-ip.com/investments/proxima,
 5631,Proxima OC,Proxima OpCo,FR,27/03/2025,28/03/2025,,,,,,X,X,,,,https://www.antin-ip.com/investments/proxima,
@@ -2380,7 +2424,8 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 7487,VSI,Voyages SNCF Italia SRL,IT,12/04/2016,10/11/2016,,,,,,x,,,,,https://italia.voyages-sncf.eu/,
 7587,VSE,Voyages SNCF Espana SRLU,ES,12/04/2016,10/11/2016,,,,,,x,,,,,http://iberica.voyages-sncf.eu/,
 7777,Juma,Junoir Market s.r.o.,CZ,17/02/2025,21/02/2025,,,,,X,X,,,,,https://www.juniormarket.cz/,
-7824,THM-PZ,"TRAIN HUNGARY MAGÁNVASÚT KFT, Podružnica u Zagrebuza pružanje željezničkih usluga",HR,24/10/2022,28/10/2022,,,,,X,,,,,,,
+7824,THM-PZ,"TRAIN HUNGARY MAGÁNVASÚT KFT, Podružnica u Zagrebu
+za pružanje željezničkih usluga",HR,24/10/2022,28/10/2022,,,,,X,,,,,,,
 7853,GP RAIL,Grampet Rail d.o.o.,HR,23/05/2025,26/05/2025,,,,,X,,,,,,www.grampetrail.hr,
 7881,RCC-HR,Rail Cargo Carrier - Croatia d.o.o.,HR,10/08/2015,11/08/2015,27/03/2025,,,,X,,,,,,http://www.railcargocarrier.com/,
 7981,RCC-SI,"Rail Cargo Carrier, druzba za zelezniski tovorni promet, d.o.o.",SI,12/10/2015,04/11/2015,27/03/2025,,,,X,,,,,,http://www.railcargocarrier.com/,
@@ -2389,5 +2434,6 @@ Kopalnie i Zaklady Chemiczne Siarki SIARKOPOL S.A.w 4325,,,PL,10/10/2018,12/10/2
 9012,LKAB,LKAB Malmtrafik AB,SE,20/08/2021,30/08/2021,,,,,X,,,,,X,https://www.lkab.com/sv/,
 9901,Eurail B.V.,Eurail B.V.,NL,05/08/2015,10/08/2015,14/04/2020,,,,,x,,,,,http://www.eurail.com/,
 9902,Eurail Group - management,Eurail Group G.I.E. management,NL,05/08/2015,07/09/2015,,,05/06/2023,,,x,,,,,http://www.eurailgroup.org/,
-9974,ASTOC,"ASTOC Association of Swedish Train Operating CompaniesSveriges Tägoperatorer Service AB",SE,06/04/2018,30/04/2018,,,,,x,,,,,,,
+9974,ASTOC,"ASTOC Association of Swedish Train Operating Companies
+Sveriges Tägoperatorer Service AB",SE,06/04/2018,30/04/2018,,,,,x,,,,,,,
 9997,MDV,Mitteldeutscher Verkehrsverbund GmbH (MDV),DE,28/03/2025,31/03/2025,,,,,,X,,,,,https://www.mdv.de/,
