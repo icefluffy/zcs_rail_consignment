@@ -24,16 +24,16 @@
         <field name="arch" type="xml">
             <form string="Validate Voorwerp">
                 <sheet>
-                    <group>
+<group>
     <field name="voorwerp_nummer"/>
     <field name="valid_evn" readonly="1"/>
     <field name="type_code" readonly="1"/>
     <field name="type_desc" readonly="1"/>
     <field name="country_code" readonly="1"/>
     <field name="country_name" readonly="1"/>
-    <field name="company_code"/> #new
+<!--    <field name="company_code"/> #new
     <field name="company_short_name"/> #new
-    <field name="company_full_name"/> #new   
+    <field name="company_full_name"/> #new   -->
     <field name="keeper_code" readonly="1"/>
     <field name="serial_number" readonly="1"/>
     <field name="check_digit" readonly="1"/>
