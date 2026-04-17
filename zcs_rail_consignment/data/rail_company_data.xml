@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="rail_company_codes_csv" model="ir.model.data">
+            <field name="name">rail_company_codes_csv</field>
+            <field name="model">ir.ui.view</field>
+            <field name="module">zcs_rail_consignment</field>
+            <field name="res_id" ref="view_rail_company_codes_import"/>
+        </record>
+    </data>
+</odoo>
