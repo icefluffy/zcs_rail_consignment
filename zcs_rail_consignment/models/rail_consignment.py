@@ -1,22 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
 
-# Add to class RailConsignmentValidator:
-company_code = fields.Char(related='keepercode', readonly=True, store=False)
-company_short_name = fields.Char(readonly=True)
-company_full_name = fields.Char(readonly=True)
-
-@api.onchange('voorwerpnummer')
-def onchange_voorwerpnummer(self):
-    for rec in self:
-        rec.decode_evn(rec.voorwerpnummer)
-        # NEW: Lookup company from registry
-        if rec.keepercode:
-            company = self.env['zcs.rail.company.code'].search([
-                ('code', '=', rec.keepercode.ljust(4, '0')[:4])  # Pad to 4 digits
-            ], limit=1)
-            rec.company_short_name = company.short_name
-            rec.company_full_name = company.full_name
 
 class RailConsignmentValidator(models.Model):
     _name = "rail.consignment.validator"
@@ -33,12 +17,19 @@ class RailConsignmentValidator(models.Model):
     check_digit = fields.Char(string="Check Digit", readonly=True)
     error_message = fields.Char(string="Error", readonly=True)
 
+    company_code = fields.Char(string="Company Code", readonly=True)
+    company_short_name = fields.Char(string="Company Short Name", readonly=True)
+    company_full_name = fields.Char(string="Company Full Name", readonly=True)
+
     def _decode_evn(self, evn):
         evn = (evn or "").strip().replace(" ", "").replace("-", "")
         if len(evn) != 12 or not evn.isdigit():
             return {
                 "valid_evn": False,
                 "error_message": "Enter exactly 12 digits.",
+                "company_code": False,
+                "company_short_name": False,
+                "company_full_name": False,
             }
 
         type_code = int(evn[0:2])
@@ -142,6 +133,11 @@ class RailConsignmentValidator(models.Model):
         calculated = (10 - (total % 10)) % 10
         valid = int(check_digit) == calculated
 
+        company = self.env["rail.company.code"].search(
+            [("code", "=", keeper_code)],
+            limit=1,
+        )
+
         return {
             "valid_evn": valid,
             "type_code": str(type_code),
@@ -152,6 +148,9 @@ class RailConsignmentValidator(models.Model):
             "serial_number": serial_number,
             "check_digit": check_digit,
             "error_message": "" if valid else f"Invalid check digit. Expected {calculated}.",
+            "company_code": keeper_code,
+            "company_short_name": company.short_name if company else False,
+            "company_full_name": company.full_name if company else False,
         }
 
     @api.onchange("voorwerp_nummer")
