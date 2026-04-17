@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rail_consignment_validator,access.rail.consignment.validator,zcs_rail_consignment.model_rail_consignment_validator,base.group_user,1,1,1,1
+access_rail_consignment_validator,access.rail.consignment.validator,model_rail_consignment_validator,base.group_user,1,1,1,1
+access_rail_company_code_user,access.rail.company.code,model_rail_company_code,base.group_user,1,0,0,0

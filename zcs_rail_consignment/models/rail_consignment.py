@@ -133,10 +133,7 @@ class RailConsignmentValidator(models.Model):
         calculated = (10 - (total % 10)) % 10
         valid = int(check_digit) == calculated
 
-        company = self.env["rail.company.code"].search(
-            [("code", "=", keeper_code)],
-            limit=1,
-        )
+        company = self.env["rail.company.code"].search([("code", "=", keeper_code)], limit=1)
 
         return {
             "valid_evn": valid,
@@ -156,10 +153,8 @@ class RailConsignmentValidator(models.Model):
     @api.onchange("voorwerp_nummer")
     def _onchange_voorwerp_nummer(self):
         for rec in self:
-            vals = rec._decode_evn(rec.voorwerp_nummer)
-            rec.update(vals)
+            rec.update(rec._decode_evn(rec.voorwerp_nummer))
 
     def action_validate_voorwerp(self):
         for rec in self:
-            vals = rec._decode_evn(rec.voorwerp_nummer)
-            rec.write(vals)
+            rec.write(rec._decode_evn(rec.voorwerp_nummer))
