@@ -34,7 +34,7 @@ class RailConsignmentValidator(models.Model):
 
         type_code = int(evn[0:2])
         country_code = int(evn[2:4])
-        keeper_code = evn[4:8]
+        keeper_code = str(int(evn[4:8]))
         serial_number = evn[8:11]
         check_digit = evn[11]
 
