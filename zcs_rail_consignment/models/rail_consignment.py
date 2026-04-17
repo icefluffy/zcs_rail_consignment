@@ -1,6 +1,23 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
 
+# Add to class RailConsignmentValidator:
+company_code = fields.Char(related='keepercode', readonly=True, store=False)
+company_short_name = fields.Char(readonly=True)
+company_full_name = fields.Char(readonly=True)
+
+@api.onchange('voorwerpnummer')
+def onchange_voorwerpnummer(self):
+    for rec in self:
+        rec.decode_evn(rec.voorwerpnummer)
+        # NEW: Lookup company from registry
+        if rec.keepercode:
+            company = self.env['zcs.rail.company.code'].search([
+                ('code', '=', rec.keepercode.ljust(4, '0')[:4])  # Pad to 4 digits
+            ], limit=1)
+            rec.company_short_name = company.short_name
+            rec.company_full_name = company.full_name
+
 class RailConsignmentValidator(models.Model):
     _name = "rail.consignment.validator"
     _description = "European Vehicle Number (EVN) Validator"
