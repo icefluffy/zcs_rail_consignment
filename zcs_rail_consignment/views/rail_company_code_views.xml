@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rail_company_code_tree" model="ir.ui.view">
+        <field name="name">rail.company.code.tree</field>
+        <field name="model">rail.company.code</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="short_name"/>
+                <field name="full_name"/>
+                <field name="country"/>
+                <field name="url"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_rail_company_code_form" model="ir.ui.view">
+        <field name="name">rail.company.code.form</field>
+        <field name="model">rail.company.code</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="short_name"/>
+                            <field name="country"/>
+                            <field name="date1"/>
+                        </group>
+                        <group>
+                            <field name="full_name"/>
+                            <field name="url"/>
+                            <field name="date2"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_rail_company_code" model="ir.actions.act_window">
+        <field name="name">Rail Company Codes</field>
+        <field name="res_model">rail.company.code</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_rail_root" name="Rail Tools" sequence="10"/>
+    <menuitem id="menu_rail_company_code"
+              name="Rail Company Codes"
+              parent="menu_rail_root"
+              action="action_rail_company_code"
+              sequence="20"/>
+</odoo>
