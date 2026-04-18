@@ -9,6 +9,7 @@
         "views/rail_consignment_views.xml",
         "data/rail_company_code.csv",  # From PDF extracted CSV coming from uic.org
     ],
+    "post_init_hook": "post_init_load_rail_company_codes",
     "installable": True,
     "application": False,
 }
