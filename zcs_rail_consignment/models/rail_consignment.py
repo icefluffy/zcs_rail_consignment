@@ -16,7 +16,6 @@ class RailConsignmentValidator(models.Model):
     serial_number = fields.Char(string="Serial Number", readonly=True)
     check_digit = fields.Char(string="Check Digit", readonly=True)
     error_message = fields.Char(string="Error", readonly=True)
-
     company_code = fields.Char(string="Company Code", readonly=True)
     company_short_name = fields.Char(string="Company Short Name", readonly=True)
     company_full_name = fields.Char(string="Company Full Name", readonly=True)

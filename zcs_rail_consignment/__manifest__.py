@@ -5,8 +5,8 @@
     "summary": "Validate rail vehicles and containers identification numbers",
     "depends": ["base"],
     "data": [
+        "data/rail_company_codes.csv",  # From PDF extracted CSV coming from uic.org        
         "security/ir.model.access.csv",
-        "data/rail_company_codes.csv",  # From PDF extracted CSV coming from uic.org
         "views/rail_consignment_views.xml",
     ],
     "installable": True,

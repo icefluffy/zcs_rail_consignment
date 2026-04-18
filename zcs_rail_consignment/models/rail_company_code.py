@@ -11,6 +11,8 @@ class RailCompanyCode(models.Model):
     full_name = fields.Char(string="Full Name", size=128)
     country = fields.Char(string="Country", size=2)
     url = fields.Char(string="URL", size=256)
+    date1 = fields.Char(10)
+    date2 = fields.Char(10)
 
     _sql_constraints = [
         ("rail_company_code_unique", "unique(code)", "Company code must be unique."),
