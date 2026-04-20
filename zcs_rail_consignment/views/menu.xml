@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- ROOT APP -->
-        <menuitem id="menu_rail_root"
-                  name="Rail Tools"
-                  web_icon="zcs_rail_consignment/static/description/icon.png"
-                  sequence="10"/>
-
-        <!-- TAB 1 -->
-        <menuitem id="menu_rail_validator"
-                  name="Rail and Container Validator"
-                  parent="menu_rail_root"
-                  action="action_rail_validator"
-                  sequence="10"/>
-
-        <!-- TAB 2 -->
-        <menuitem id="menu_rail_company_codes"
-                  name="Company Codes (RICS)"
-                  parent="menu_rail_root"
-                  action="action_rail_company_codes"
-                  sequence="20"/>
 
         <!-- ACTION 1: Rail and Container Validator -->
         <record id="action_rail_validator" model="ir.actions.act_window">
@@ -75,6 +56,26 @@
                 </form>
             </field>
         </record>
+
+        <!-- ROOT APP -->
+        <menuitem id="menu_rail_root"
+                  name="Rail Tools"
+                  web_icon="zcs_rail_consignment/static/description/icon.png"
+                  sequence="10"/>
+
+        <!-- TAB 1 -->
+        <menuitem id="menu_rail_validator"
+                  name="Rail and Container Validator"
+                  parent="menu_rail_root"
+                  action="action_rail_validator"
+                  sequence="10"/>
+
+        <!-- TAB 2 -->
+        <menuitem id="menu_rail_company_codes"
+                  name="Company Codes (RICS)"
+                  parent="menu_rail_root"
+                  action="action_rail_company_codes"
+                  sequence="20"/>
 
     </data>
 </odoo>
