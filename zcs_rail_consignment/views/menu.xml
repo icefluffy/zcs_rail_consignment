@@ -3,23 +3,6 @@
     <data>
 
         <!-- =========================
-             RAIL VALIDATOR FORM VIEW
-             ========================= -->
-        <record id="view_rail_validator_form" model="ir.ui.view">
-            <field name="name">rail.consignment.validator.form</field>
-            <field name="model">rail.consignment.validator</field>
-            <field name="arch" type="xml">
-                <form string="Rail and Container Validator">
-                    <sheet>
-                        <group>
-                            <field name="name" invisible="1"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <!-- =========================
              RAIL COMPANY CODE LIST VIEW
              ========================= -->
         <record id="view_rail_company_code_list" model="ir.ui.view">
@@ -62,16 +45,8 @@
         </record>
 
         <!-- =========================
-             ACTIONS
+             ACTION: COMPANY CODES
              ========================= -->
-        <record id="action_rail_validator" model="ir.actions.act_window">
-            <field name="name">Rail and Container Validator</field>
-            <field name="res_model">rail.consignment.validator</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_rail_validator_form"/>
-            <field name="target">current</field>
-        </record>
-
         <record id="action_rail_company_codes" model="ir.actions.act_window">
             <field name="name">Company Codes (RICS)</field>
             <field name="res_model">rail.company.code</field>
@@ -79,19 +54,43 @@
             <field name="target">current</field>
         </record>
 
+        <!-- Optional: force Odoo to use your exact views -->
+        <record id="action_rail_company_codes_list_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_rail_company_code_list"/>
+            <field name="act_window_id" ref="action_rail_company_codes"/>
+        </record>
+
+        <record id="action_rail_company_codes_form_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_rail_company_code_form"/>
+            <field name="act_window_id" ref="action_rail_company_codes"/>
+        </record>
+
         <!-- =========================
-             MENUS
+             ROOT MENU
              ========================= -->
         <menuitem id="menu_rail_root"
                   name="Rail Tools"
                   sequence="10"/>
 
+        <!-- =========================
+             EXISTING VALIDATOR MENU
+             IMPORTANT:
+             replace YOUR_OLD_VALIDATOR_ACTION_ID with the action id
+             from your old working XML file
+             ========================= -->
         <menuitem id="menu_rail_validator"
                   name="Rail and Container Validator"
                   parent="menu_rail_root"
-                  action="action_rail_validator"
+                  action="YOUR_OLD_VALIDATOR_ACTION_ID"
                   sequence="10"/>
 
+        <!-- =========================
+             COMPANY CODES MENU
+             ========================= -->
         <menuitem id="menu_rail_company_codes"
                   name="Company Codes (RICS)"
                   parent="menu_rail_root"
