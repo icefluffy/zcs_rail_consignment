@@ -44,10 +44,8 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_rail_root" name="Rail Tools" sequence="10"/>
     <menuitem id="menu_rail_company_code"
-              name="Rail Company Codes"
-              parent="menu_rail_root"
+              name="Rail Tools"
               action="action_rail_company_code"
-              sequence="20"/>
+              sequence="10"/>
 </odoo>
