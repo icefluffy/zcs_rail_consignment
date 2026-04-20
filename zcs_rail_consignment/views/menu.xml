@@ -12,27 +12,49 @@
 
         <!-- ACTION 2: Company Codes (RICS) -->
         <record id="action_rail_company_codes" model="ir.actions.act_window">
-        <field name="name">Company Codes (RICSA)</field>
-        <field name="model">rail.company.code</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
+            <field name="name">Company Codes (RICSA)</field>
+            <field name="res_model">rail.company.code</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- LIST VIEW for Company Codes -->
+        <record id="view_rail_company_code_list" model="ir.ui.view">
+            <field name="name">rail.company.code.list</field>
+            <field name="model">rail.company.code</field>
+            <field name="arch" type="xml">
+                <list string="Company Codes">
+                    <field name="code"/>
+                    <field name="short_name"/>
+                    <field name="full_name"/>
+                    <field name="country"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- FORM VIEW for Company Codes -->
+        <record id="view_rail_company_code_form" model="ir.ui.view">
+            <field name="name">rail.company.code.form</field>
+            <field name="model">rail.company.code</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
                         <group>
-                            <field name="code"/>
-                            <field name="short_name"/>
-                            <field name="country"/>
-                            <field name="date1"/>
+                            <group>
+                                <field name="code"/>
+                                <field name="short_name"/>
+                                <field name="country"/>
+                                <field name="date1"/>
+                            </group>
+                            <group>
+                                <field name="full_name"/>
+                                <field name="url"/>
+                                <field name="date2"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="full_name"/>
-                            <field name="url"/>
-                            <field name="date2"/>
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
         <!-- ROOT APP -->
