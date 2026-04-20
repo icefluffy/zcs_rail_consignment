@@ -12,7 +12,8 @@ class RailConsignmentValidator(models.Model):
     type_desc = fields.Char(string="Vehicle Type", readonly=True)
     country_code = fields.Char(string="Country Code", readonly=True)
     country_name = fields.Char(string="Country", readonly=True)
-    keeper_code = fields.Char(string="Keeper Code", readonly=True)
+    technical_code = fields.Char(string="Technical Code (digits 5-8)", readonly=True)
+    technical_desc = fields.Char(string="Technical Description", readonly=True)
     serial_number = fields.Char(string="Serial Number", readonly=True)
     check_digit = fields.Char(string="Check Digit", readonly=True)
     error_message = fields.Char(string="Error", readonly=True)
@@ -33,7 +34,7 @@ class RailConsignmentValidator(models.Model):
 
         type_code = int(evn[0:2])
         country_code = int(evn[2:4])
-        keeper_code = str(int(evn[4:8]))
+        technical_code = str(int(evn[4:8]))
         serial_number = evn[8:11]
         check_digit = evn[11]
 
@@ -124,6 +125,28 @@ class RailConsignmentValidator(models.Model):
         }
         country_name = country_map.get(country_code, f"Unknown country {country_code}")
 
+        # Freight wagon class (digit 5 = evn[4])
+        WAGON_CLASS = {
+            "0": "T - Wagon with opening roof",
+            "1": "G - Ordinary covered wagon",
+            "2": "H - Special covered wagon",
+            "3": "K/R/O - Flat wagon (separate axles or bogies)",
+            "4": "L/S - Special flat wagon",
+            "5": "E - Ordinary open high-sided wagon",
+            "6": "F - Special open high-sided wagon",
+            "7": "Z - Tank wagon",
+            "8": "I - Refrigerated/temperature controlled",
+            "9": "U - Special wagon",
+        }
+
+        # Only decode for freight wagons (type_code 0x-8x)
+        if type_code < 90:
+            wagon_class_digit = evn[4]
+            technical_desc = WAGON_CLASS.get(wagon_class_digit, f"Unknown class digit {wagon_class_digit}")
+        else:
+            # For traction (9x), digits 5-8 = class number
+            technical_desc = f"Loco/MU class {technical_code}"
+
         weights = [2, 1] * 6
         total = 0
         for i in range(11):
@@ -133,7 +156,7 @@ class RailConsignmentValidator(models.Model):
         valid = int(check_digit) == calculated
 
         company = self.env["rail.company.code"].search([
-    ("code", "=", keeper_code.strip()),
+    ("code", "=", technical_code.strip()),
 ], limit=1)
 
         return {
@@ -142,11 +165,11 @@ class RailConsignmentValidator(models.Model):
             "type_desc": type_desc,
             "country_code": str(country_code),
             "country_name": country_name,
-            "keeper_code": keeper_code,
+            "technical_code": technical_code,
             "serial_number": serial_number,
             "check_digit": check_digit,
             "error_message": "" if valid else f"Invalid check digit. Expected {calculated}.",
-            "company_code": keeper_code,
+            "company_code": technical_code,
             "company_short_name": company.short_name if company else False,
             "company_full_name": company.full_name if company else False,
         }
