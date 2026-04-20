@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_rail_company_code_tree" model="ir.ui.view">
-        <field name="name">rail.company.code.tree</field>
+    <record id="view_rail_company_code_list" model="ir.ui.view">
+        <field name="name">rail.company.code.list</field>
         <field name="model">rail.company.code</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="code"/>
                 <field name="short_name"/>
                 <field name="full_name"/>
                 <field name="country"/>
                 <field name="url"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -41,7 +41,7 @@
     <record id="action_rail_company_code" model="ir.actions.act_window">
         <field name="name">Rail Company Codes</field>
         <field name="res_model">rail.company.code</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_rail_root" name="Rail Tools" sequence="10"/>
