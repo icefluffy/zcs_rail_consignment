@@ -168,6 +168,7 @@ class RailConsignmentValidator(models.Model):
             "country_code": str(country_code),
             "country_name": country_name,
             "technical_code": technical_code,
+            "technical_desc": technical_desc,
             "serial_number": serial_number,
             "check_digit": check_digit,
             "error_message": "" if valid else f"Invalid check digit. Expected {calculated}.",
