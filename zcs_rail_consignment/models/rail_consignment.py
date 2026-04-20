@@ -17,9 +17,9 @@ class RailConsignmentValidator(models.Model):
     serial_number = fields.Char(string="Serial Number", readonly=True)
     check_digit = fields.Char(string="Check Digit", readonly=True)
     error_message = fields.Char(string="Error", readonly=True)
-    company_code = fields.Char(string="Company Code", readonly=True)
-    company_short_name = fields.Char(string="Company Short Name", readonly=True)
-    company_full_name = fields.Char(string="Company Full Name", readonly=True)
+    #company_code = fields.Char(string="Company Code", readonly=True)
+    #company_short_name = fields.Char(string="Company Short Name", readonly=True)
+    #company_full_name = fields.Char(string="Company Full Name", readonly=True)
 
     def _decode_evn(self, evn):
         evn = (evn or "").strip().replace(" ", "").replace("-", "")
@@ -27,9 +27,9 @@ class RailConsignmentValidator(models.Model):
             return {
                 "valid_evn": False,
                 "error_message": "Enter exactly 12 digits.",
-                "company_code": False,
-                "company_short_name": False,
-                "company_full_name": False,
+                #"company_code": False,
+                #"company_short_name": False,
+                #"company_full_name": False,
             }
 
         type_code = int(evn[0:2])
@@ -169,9 +169,9 @@ class RailConsignmentValidator(models.Model):
             "serial_number": serial_number,
             "check_digit": check_digit,
             "error_message": "" if valid else f"Invalid check digit. Expected {calculated}.",
-            "company_code": technical_code,
-            "company_short_name": company.short_name if company else False,
-            "company_full_name": company.full_name if company else False,
+            #"company_code": technical_code,
+            #"company_short_name": company.short_name if company else False,
+            #"company_full_name": company.full_name if company else False,
         }
 
     @api.onchange("voorwerp_nummer")
