@@ -34,7 +34,7 @@ class RailConsignmentValidator(models.Model):
 
         type_code = int(evn[0:2])
         country_code = int(evn[2:4])
-        technical_code = str(int(evn[4:8]))
+        technical_code = str(evn[4:8])
         serial_number = evn[8:11]
         check_digit = evn[11]
 
@@ -140,12 +140,16 @@ class RailConsignmentValidator(models.Model):
         }
 
         # Only decode for freight wagons (type_code 0x-8x)
-        if type_code < 90:
+        if 80 <= type_code <= 89:
+            # Freight wagons: digit 5 = wagon class
             wagon_class_digit = evn[4]
             technical_desc = WAGON_CLASS.get(wagon_class_digit, f"Unknown class digit {wagon_class_digit}")
-        else:
-            # For traction (9x), digits 5-8 = class number
+        elif type_code >= 90:
+            # Traction (locos, MUs): digits 5-8 = class number
             technical_desc = f"Loco/MU class {technical_code}"
+        else:
+            # Passenger coaches, special vehicles: not yet decoded
+            technical_desc = f"Technical code {technical_code} (type {type_code})"
 
         weights = [2, 1] * 6
         total = 0
@@ -155,9 +159,7 @@ class RailConsignmentValidator(models.Model):
         calculated = (10 - (total % 10)) % 10
         valid = int(check_digit) == calculated
 
-        company = self.env["rail.company.code"].search([
-    ("code", "=", technical_code.strip()),
-], limit=1)
+
 
         return {
             "valid_evn": valid,
