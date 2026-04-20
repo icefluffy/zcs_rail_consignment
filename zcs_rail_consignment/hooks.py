@@ -25,7 +25,6 @@ def post_init_load_rail_company_codes(env):
             if not code:
                 continue
 
-            existing = CompanyCode.search([("code", "=", code)], limit=1)
             vals = {
                 "code": code,
                 "short_name": (row.get("short_name") or "").strip(),
@@ -36,7 +35,8 @@ def post_init_load_rail_company_codes(env):
                 "url": (row.get("url") or "").strip(),
             }
 
-            if existing:
-                existing.write(vals)
+            rec = CompanyCode.search([("code", "=", code)], limit=1)
+            if rec:
+                rec.write(vals)
             else:
                 CompanyCode.create(vals)
