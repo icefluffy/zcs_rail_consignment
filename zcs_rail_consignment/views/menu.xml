@@ -2,67 +2,35 @@
 <odoo>
     <data>
 
-        <record id="view_rail_company_code_list" model="ir.ui.view">
-            <field name="name">rail.company.code.list</field>
-            <field name="model">rail.company.code</field>
-            <field name="arch" type="xml">
-                <list string="Company Codes (RICS)">
-                    <field name="code"/>
-                    <field name="short_name"/>
-                    <field name="full_name"/>
-                    <field name="country"/>
-                    <field name="url"/>
-                </list>
-            </field>
-        </record>
-
-        <record id="view_rail_company_code_form" model="ir.ui.view">
-            <field name="name">rail.company.code.form</field>
-            <field name="model">rail.company.code</field>
-            <field name="arch" type="xml">
-                <form string="Company Codes (RICS)">
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="code"/>
-                                <field name="short_name"/>
-                                <field name="country"/>
-                            </group>
-                            <group>
-                                <field name="full_name"/>
-                                <field name="url"/>
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="action_rail_company_codes" model="ir.actions.act_window">
-            <field name="name">Company Codes (RICS)</field>
-            <field name="res_model">rail.company.code</field>
-            <field name="view_mode">list,form</field>
+        <!-- ACTION 1: Rail and Container Validator -->
+        <record id="action_rail_validator" model="ir.actions.act_window">
+            <field name="name">Rail and Container Validator</field>
+            <field name="res_model">rail.consignment.validator</field>
+            <field name="view_mode">form</field>
             <field name="target">current</field>
         </record>
 
-        <record id="action_rail_company_codes_list_view" model="ir.actions.act_window.view">
-            <field name="sequence" eval="1"/>
-            <field name="view_mode">list</field>
-            <field name="view_id" ref="view_rail_company_code_list"/>
-            <field name="act_window_id" ref="action_rail_company_codes"/>
+        <!-- ACTION 2: Company Codes (RICS) -->
+        <record id="action_rail_company_codes" model="ir.actions.act_window">
+            <field name="name">Company Codes (RICS)</field>
+            <field name="res_model">rail.company.code</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
         </record>
 
-        <record id="action_rail_company_codes_form_view" model="ir.actions.act_window.view">
-            <field name="sequence" eval="2"/>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_rail_company_code_form"/>
-            <field name="act_window_id" ref="action_rail_company_codes"/>
-        </record>
-
+        <!-- ROOT APP -->
         <menuitem id="menu_rail_root"
                   name="Rail Tools"
                   sequence="10"/>
 
+        <!-- TAB 1 -->
+        <menuitem id="menu_rail_validator"
+                  name="Rail and Container Validator"
+                  parent="menu_rail_root"
+                  action="action_rail_validator"
+                  sequence="10"/>
+
+        <!-- TAB 2 -->
         <menuitem id="menu_rail_company_codes"
                   name="Company Codes (RICS)"
                   parent="menu_rail_root"
