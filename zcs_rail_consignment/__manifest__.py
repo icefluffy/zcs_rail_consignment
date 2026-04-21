@@ -2,7 +2,7 @@
     "name": "Rail Consignment Validator",
     "version": "1.0",
     "category": "Inventory/Shipments",
-    "icon": "static/description/icon.png",
+    "icon": "zcs_rail_consignment/static/description/icon.png",
     "summary": "Validate rail vehicles and containers identification numbers",
     "depends": ["base"],
     "data": [
