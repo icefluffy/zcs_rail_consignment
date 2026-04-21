@@ -223,15 +223,24 @@ class RailConsignmentValidator(models.Model):
 
         # Only decode for freight wagons (type_code 0x-8x)
         if 80 <= type_code <= 89:
-            # Freight wagons: digit 5 = wagon class
+            # Freight wagons: digit 5 = wagon class, digits 6-8 = sub-characteristics
             wagon_class_digit = evn[4]
-            technical_desc = WAGON_CLASS.get(wagon_class_digit, f"Unknown class digit {wagon_class_digit}")
+            digits_6_to_8 = evn[5:8]
+        
+            wagon_class_desc = WAGON_CLASS.get(wagon_class_digit, f"Unknown class {wagon_class_digit}")
+            subtype_map = WAGON_SUBTYPE.get(wagon_class_digit, {})
+            subtype_desc = subtype_map.get(digits_6_to_8, f"Sub-type {digits_6_to_8} (not yet decoded)")
+        
+            technical_desc = f"{wagon_class_desc} | {subtype_desc}"
+        
         elif type_code >= 90:
-            # Traction (locos, MUs): digits 5-8 = class number
+            # Traction (locos, MUs): digits 5-8 = class number, no sub-decode
             technical_desc = f"Loco/MU class {technical_code}"
+        
         else:
-            # Passenger coaches, special vehicles: not yet decoded
+            # Passenger coaches (5x), multiple units (4x), special vehicles: not yet decoded
             technical_desc = f"Technical code {technical_code} (type {type_code})"
+
 
         weights = [2, 1] * 6
         total = 0
