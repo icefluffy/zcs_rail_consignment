@@ -5,7 +5,6 @@
     "category": "Field Service",
     "author": "IceFluffy & Sebas",
     "website": "https://github.com/icefluffy/zcs_rail_consignment/",
-    "icon": "static/description/icon.png",
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
