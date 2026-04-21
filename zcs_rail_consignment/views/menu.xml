@@ -60,6 +60,7 @@
         <!-- ROOT APP -->
         <menuitem id="menu_rail_root"
                   name="Rail Tools"
+                  web_icon="zcs_rail_consignment,static/description/icon.png"
                   sequence="10"/>
 
         <!-- TAB 1 -->
