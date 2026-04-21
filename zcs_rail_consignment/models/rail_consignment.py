@@ -139,6 +139,88 @@ class RailConsignmentValidator(models.Model):
             "9": "U - Special wagon",
         }
 
+        # Digits 6-8 sub-characteristics, keyed by digit 5 (class)
+        # Format: WAGON_SUBTYPE[digit5][digits6to8] = description
+        # digits6to8 is a 3-character string e.g. "000", "012", "123"
+        
+        WAGON_SUBTYPE = {
+        
+            # ── G: Ordinary Covered Wagon (1xxx) ──────────────────────────────────
+            "1": {
+                "000": "2 axles, load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "001": "2 axles, load gauge G1, up to 20t axle load, max 100 km/h",
+                "002": "2 axles, load gauge G1, sliding walls, max 100 km/h",
+                "003": "2 axles, load gauge G1, sliding walls + opening roof, max 100 km/h",
+                "004": "2 axles, load gauge G1, special fittings, max 100 km/h",
+                "010": "2 axles, load gauge G2, up to 22.5t axle load, max 100 km/h",
+                "011": "2 axles, load gauge G2, up to 20t axle load, max 100 km/h",
+                "012": "2 axles, load gauge G2, sliding walls, max 100 km/h",
+                "020": "2 axles, load gauge G1, max 120 km/h",
+                "021": "2 axles, load gauge G1, sliding walls, max 120 km/h",
+                "030": "2 axles, load gauge G2, max 120 km/h",
+                "100": "Bogie wagon, load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "101": "Bogie wagon, load gauge G1, up to 20t axle load, max 100 km/h",
+                "102": "Bogie wagon, load gauge G1, sliding walls, max 100 km/h",
+                "103": "Bogie wagon, load gauge G1, sliding walls + opening roof, max 100 km/h",
+                "110": "Bogie wagon, load gauge G2, up to 22.5t axle load, max 100 km/h",
+                "111": "Bogie wagon, load gauge G2, up to 20t axle load, max 100 km/h",
+                "120": "Bogie wagon, load gauge G1, max 120 km/h",
+                "121": "Bogie wagon, load gauge G1, sliding walls, max 120 km/h",
+                "130": "Bogie wagon, load gauge G2, max 120 km/h",
+                "200": "2 axles, load gauge G1, bulk discharge, max 100 km/h",
+                "300": "Bogie wagon, load gauge G1, bulk discharge, max 100 km/h",
+            },
+        
+            # ── E: Ordinary open high-sided wagon (5xxx) ──────────────────────────
+            "5": {
+                "000": "2 axles, load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "001": "2 axles, load gauge G1, up to 20t axle load, max 100 km/h",
+                "010": "2 axles, load gauge G2, up to 22.5t axle load, max 100 km/h",
+                "020": "2 axles, load gauge G1, max 120 km/h",
+                "100": "Bogie wagon, load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "110": "Bogie wagon, load gauge G2, up to 22.5t axle load, max 100 km/h",
+                "120": "Bogie wagon, load gauge G1, max 120 km/h",
+                "200": "2 axles, self-discharge, max 100 km/h",
+                "300": "Bogie wagon, self-discharge, max 100 km/h",
+            },
+        
+            # ── Z: Tank wagon (7xxx) ──────────────────────────────────────────────
+            "7": {
+                "000": "2 axles, non-pressurised, up to 22.5t axle load, max 100 km/h",
+                "001": "2 axles, non-pressurised, up to 20t axle load, max 100 km/h",
+                "010": "2 axles, pressurised, up to 22.5t axle load, max 100 km/h",
+                "020": "2 axles, non-pressurised, max 120 km/h",
+                "030": "2 axles, pressurised, max 120 km/h",
+                "100": "Bogie wagon, non-pressurised, up to 22.5t axle load, max 100 km/h",
+                "110": "Bogie wagon, pressurised, up to 22.5t axle load, max 100 km/h",
+                "120": "Bogie wagon, non-pressurised, max 120 km/h",
+                "130": "Bogie wagon, pressurised, max 120 km/h",
+                "200": "2 axles, cryogenic (liquefied gas), max 100 km/h",
+                "300": "Bogie wagon, cryogenic (liquefied gas), max 100 km/h",
+            },
+        
+            # ── K/R/O: Flat wagon (3xxx) ──────────────────────────────────────────
+            "3": {
+                "000": "2 axles (K), load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "001": "2 axles (K), load gauge G1, up to 20t axle load, max 100 km/h",
+                "010": "2 axles (K), load gauge G2, max 100 km/h",
+                "020": "2 axles (K), load gauge G1, max 120 km/h",
+                "100": "Bogie wagon (R), load gauge G1, up to 22.5t axle load, max 100 km/h",
+                "101": "Bogie wagon (R), load gauge G1, up to 20t axle load, max 100 km/h",
+                "110": "Bogie wagon (R), load gauge G2, max 100 km/h",
+                "120": "Bogie wagon (R), load gauge G1, max 120 km/h",
+                "200": "Composite flat wagon (O), max 100 km/h",
+            },
+        
+            # ── Remaining classes: add as needed ─────────────────────────────────
+            # "0": { ... },  # T - opening roof
+            # "2": { ... },  # H - special covered
+            # "4": { ... },  # L/S - special flat
+            # "6": { ... },  # F - special open
+            # "8": { ... },  # I - temperature controlled
+            # "9": { ... },  # U - special
+        }
+
         # Only decode for freight wagons (type_code 0x-8x)
         if 80 <= type_code <= 89:
             # Freight wagons: digit 5 = wagon class
