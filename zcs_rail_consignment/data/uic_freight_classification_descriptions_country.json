@@ -1,0 +1,261 @@
+{
+  "50": {
+    "t": {
+      "uic_freight_codes_50_t_1": [
+        "Gbkl",
+        "Hkr"
+      ]
+    },
+    "u": {
+      "uic_freight_codes_50_u_1": [
+        "E",
+        "G",
+        "K",
+        "R"
+      ]
+    },
+    "v": {
+      "uic_freight_codes_50_v_1": [
+        "E",
+        "T"
+      ],
+      "uic_freight_codes_50_v_2": [
+        "G",
+        "H"
+      ],
+      "uic_freight_codes_50_v_3": [
+        "U"
+      ]
+    },
+    "w": {
+      "uic_freight_codes_50_w_1": [
+        "U"
+      ],
+      "uic_freight_codes_50_w_2": [
+        "Z"
+      ]
+    },
+    "x": {
+      "uic_freight_codes_50_x_1": [
+        "E"
+      ],
+      "uic_freight_codes_50_x_2": [
+        "Uc"
+      ]
+    },
+    "y": {
+      "uic_freight_codes_50_y_1": [
+        "Uc"
+      ],
+      "uic_freight_codes_50_y_2": [
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "z": {
+      "uic_freight_codes_50_z_1": [
+        "K",
+        "L",
+        "R",
+        "S"
+      ],
+      "uic_freight_codes_50_z_2": [
+        "G",
+        "I"
+      ]
+    },
+    "zz": {
+      "uic_freight_codes_50_zz_1": [
+        "F"
+      ]
+    }
+  },
+  "80": {
+    "t": {
+      "uic_freight_codes_80_t_1": [
+        "H"
+      ],
+      "uic_freight_codes_80_t_2": [
+        "L"
+      ]
+    },
+    "tt": {
+      "uic_freight_codes_80_tt_1": [
+        "H"
+      ]
+    },
+    "u": {
+      "uic_freight_codes_80_u_1": [
+        "E",
+        "F",
+        "S"
+      ],
+      "uic_freight_codes_80_u_2": [
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "T"
+      ]
+    },
+    "v": {
+      "uic_freight_codes_80_v_1": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "vv": {
+      "uic_freight_codes_80_vv_1": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "w": {
+      "uic_freight_codes_80_w_1": [
+        "G",
+        "H",
+        "S"
+      ]
+    },
+    "ww": {
+      "uic_freight_codes_80_ww_1": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "x": {
+      "uic_freight_codes_80_x_1": [
+        "U"
+      ]
+    },
+    "z": {
+      "uic_freight_codes_80_z_1": [
+        "F"
+      ],
+      "uic_freight_codes_80_z_2": [
+        "H"
+      ],
+      "uic_freight_codes_80_z_3": [
+        "T"
+      ]
+    }
+  },
+  "85": {
+    "t": {
+      "uic_freight_codes_85_t_1": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "u": {
+      "uic_freight_codes_85_u_1": [
+        "F"
+      ],
+      "uic_freight_codes_85_u_2": [
+        "H"
+      ]
+    },
+    "v": {
+      "uic_freight_codes_85_v_1": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "Z"
+      ]
+    },
+    "w": {
+      "uic_freight_codes_85_w_1": [
+        "R",
+        "S",
+        "U"
+      ]
+    },
+    "ww": {
+      "uic_freight_codes_85_ww_1": [
+        "H"
+      ]
+    },
+    "x": {
+      "uic_freight_codes_85_x_1": [
+        "H"
+      ],
+      "uic_freight_codes_85_x_2": [
+        "S",
+        "L"
+      ]
+    },
+    "y": {
+      "uic_freight_codes_85_y_1": [
+        "H"
+      ],
+      "uic_freight_codes_85_y_2": [
+        "F"
+      ],
+      "uic_freight_codes_85_y_3": [
+        "R",
+        "S"
+      ]
+    },
+    "z": {
+      "uic_freight_codes_85_z_1": [
+        "G",
+        "H"
+      ]
+    },
+    "zz": {
+      "uic_freight_codes_80_zz_1": [
+        "Fb"
+      ]
+    }
+  }
+}

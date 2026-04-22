@@ -77,5 +77,11 @@
                   action="action_rail_company_codes"
                   sequence="20"/>
 
+        <!-- TAB 3 -->
+        <menuitem id="menu_rail_GCWiz_codes"
+                  name="GCWizard derived module"
+                  parent="menu_rail_root"
+                  action="action_rail_company_codes"
+                  sequence="30"/>
     </data>
 </odoo>

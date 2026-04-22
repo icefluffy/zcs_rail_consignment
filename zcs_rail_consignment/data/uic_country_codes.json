@@ -1,0 +1,327 @@
+[
+  {
+    "number_code": "10",
+    "name": "Finland",
+    "letter_code": "FIN"
+  },
+  {
+    "number_code": "20",
+    "name": "Russia",
+    "letter_code": "RUS"
+  },
+  {
+    "number_code": "21",
+    "name": "Belarus",
+    "letter_code": "BLR"
+  },
+  {
+    "number_code": "22",
+    "name": "Ukraine",
+    "letter_code": "UA"
+  },
+  {
+    "number_code": "23",
+    "name": "Moldova",
+    "letter_code": "MD"
+  },
+  {
+    "number_code": "24",
+    "name": "Lithuania",
+    "letter_code": "LT"
+  },
+  {
+    "number_code": "25",
+    "name": "Latvia",
+    "letter_code": "LV"
+  },
+  {
+    "number_code": "26",
+    "name": "Estonia",
+    "letter_code": "EST"
+  },
+  {
+    "number_code": "27",
+    "name": "Kazakhstan",
+    "letter_code": "KZ"
+  },
+  {
+    "number_code": "28",
+    "name": "Georgia",
+    "letter_code": "GE"
+  },
+  {
+    "number_code": "29",
+    "name": "Uzbekistan",
+    "letter_code": "UZ"
+  },
+  {
+    "number_code": "30",
+    "name": "North Korea",
+    "letter_code": "PRK"
+  },
+  {
+    "number_code": "31",
+    "name": "Mongolia",
+    "letter_code": "MGL"
+  },
+  {
+    "number_code": "32",
+    "name": "Vietnam",
+    "letter_code": "VN"
+  },
+  {
+    "number_code": "33",
+    "name": "People's Republic of China",
+    "letter_code": "RC"
+  },
+  {
+    "number_code": "40",
+    "name": "Cuba",
+    "letter_code": "C"
+  },
+  {
+    "number_code": "41",
+    "name": "Albania",
+    "letter_code": "AL"
+  },
+  {
+    "number_code": "42",
+    "name": "Japan",
+    "letter_code": "J"
+  },
+  {
+    "number_code": "44",
+    "name": "Bosnia and Herzegovina",
+    "letter_code": "BIH"
+  },
+  {
+    "number_code": "49",
+    "name": "Bosnia and Herzegovina",
+    "letter_code": "BIH"
+  },
+  {
+    "number_code": "50",
+    "name": "Bosnia and Herzegovina",
+    "letter_code": "BIH"
+  },
+  {
+    "number_code": "51",
+    "name": "Poland",
+    "letter_code": "PL"
+  },
+  {
+    "number_code": "52",
+    "name": "Bulgaria",
+    "letter_code": "BG"
+  },
+  {
+    "number_code": "53",
+    "name": "Romania",
+    "letter_code": "RO"
+  },
+  {
+    "number_code": "54",
+    "name": "Czech Republic",
+    "letter_code": "CZ"
+  },
+  {
+    "number_code": "55",
+    "name": "Hungary",
+    "letter_code": "H"
+  },
+  {
+    "number_code": "56",
+    "name": "Slovakia",
+    "letter_code": "SK"
+  },
+  {
+    "number_code": "57",
+    "name": "Azerbaijan",
+    "letter_code": "AZ"
+  },
+  {
+    "number_code": "58",
+    "name": "Armenia",
+    "letter_code": "ARM"
+  },
+  {
+    "number_code": "59",
+    "name": "Kyrgyzstan",
+    "letter_code": "KS"
+  },
+  {
+    "number_code": "60",
+    "name": "Ireland",
+    "letter_code": "IRL"
+  },
+  {
+    "number_code": "61",
+    "name": "South Korea",
+    "letter_code": "ROK"
+  },
+  {
+    "number_code": "62",
+    "name": "Montenegro",
+    "letter_code": null
+  },
+  {
+    "number_code": "65",
+    "name": "North Macedonia",
+    "letter_code": "MK"
+  },
+  {
+    "number_code": "66",
+    "name": "Tajikistan",
+    "letter_code": "TJ"
+  },
+  {
+    "number_code": "67",
+    "name": "Turkmenistan",
+    "letter_code": "TM"
+  },
+  {
+    "number_code": "68",
+    "name": "Afghanistan",
+    "letter_code": null
+  },
+  {
+    "number_code": "70",
+    "name": "United Kingdom",
+    "letter_code": "GB"
+  },
+  {
+    "number_code": "71",
+    "name": "Spain",
+    "letter_code": "E"
+  },
+  {
+    "number_code": "72",
+    "name": "Serbia",
+    "letter_code": "YU"
+  },
+  {
+    "number_code": "73",
+    "name": "Greece",
+    "letter_code": "GR"
+  },
+  {
+    "number_code": "74",
+    "name": "Sweden",
+    "letter_code": "S"
+  },
+  {
+    "number_code": "75",
+    "name": "Turkey",
+    "letter_code": "TR"
+  },
+  {
+    "number_code": "76",
+    "name": "Norway",
+    "letter_code": "N"
+  },
+  {
+    "number_code": "78",
+    "name": "Croatia",
+    "letter_code": "HR"
+  },
+  {
+    "number_code": "79",
+    "name": "Slovenia",
+    "letter_code": "SLO"
+  },
+  {
+    "number_code": "80",
+    "name": "Germany",
+    "letter_code": "D"
+  },
+  {
+    "number_code": "81",
+    "name": "Austria",
+    "letter_code": "A"
+  },
+  {
+    "number_code": "82",
+    "name": "Luxembourg",
+    "letter_code": "L"
+  },
+  {
+    "number_code": "83",
+    "name": "Italy",
+    "letter_code": "I"
+  },
+  {
+    "number_code": "84",
+    "name": "Netherlands",
+    "letter_code": "NL"
+  },
+  {
+    "number_code": "85",
+    "name": "Switzerland",
+    "letter_code": "CH"
+  },
+  {
+    "number_code": "86",
+    "name": "Denmark",
+    "letter_code": "DK"
+  },
+  {
+    "number_code": "87",
+    "name": "France",
+    "letter_code": "F"
+  },
+  {
+    "number_code": "88",
+    "name": "Belgium",
+    "letter_code": "B"
+  },
+  {
+    "number_code": "90",
+    "name": "Egypt",
+    "letter_code": "ET"
+  },
+  {
+    "number_code": "91",
+    "name": "Tunisia",
+    "letter_code": "TN"
+  },
+  {
+    "number_code": "92",
+    "name": "Algeria",
+    "letter_code": "DZ"
+  },
+  {
+    "number_code": "93",
+    "name": "Morocco",
+    "letter_code": "MA"
+  },
+  {
+    "number_code": "94",
+    "name": "Portugal",
+    "letter_code": "P"
+  },
+  {
+    "number_code": "95",
+    "name": "Israel",
+    "letter_code": "IL"
+  },
+  {
+    "number_code": "96",
+    "name": "Iran",
+    "letter_code": "IR"
+  },
+  {
+    "number_code": "97",
+    "name": "Syria",
+    "letter_code": "SYR"
+  },
+  {
+    "number_code": "98",
+    "name": "Lebanon",
+    "letter_code": "RL"
+  },
+  {
+    "number_code": "99",
+    "name": "Iraq",
+    "letter_code": "IRQ"
+  }
+]
