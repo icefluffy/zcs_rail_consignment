@@ -14,16 +14,21 @@ import os
 import logging
 from odoo import models, fields, api
 
+
 _logger = logging.getLogger(__name__)
 
+
 # ── Data loading ───────────────────────────────────────────────────────────────
+
 
 def _data_path(filename):
     return os.path.join(os.path.dirname(__file__), '..', 'data', filename)
 
+
 def _load_json(filename):
     with open(_data_path(filename), encoding="utf-8") as fh:
         return json.load(fh)
+
 
 # Country lookup: number_code (str) → {name, letter_code}
 # Duplicates (44, 49, 50 → BIH) are preserved; first entry wins on dup.
@@ -35,14 +40,17 @@ for _entry in reversed(_COUNTRY_LIST):
         "letter_code": _entry["letter_code"],
     }
 
+
 # Freight classification codes: d0 → d2d3 → d9 → concatenated letter code string
 _FREIGHT_CLASSIFICATION: dict[str, dict[str, dict[str, str]]] = \
     _load_json("uic_freight_classification_codes.json")
+
 
 # Freight letter code descriptions:
 # letter_code (lowercase) → { i18n_key: [wagon_class_letters, ...], ... }
 _FREIGHT_DESCRIPTIONS_RAW: dict[str, dict[str, list[str]]] = \
     _load_json("uic_freight_classification_descriptions.json")
+
 
 # Human-readable descriptions keyed by the i18n key suffix (e.g. "a_1").
 _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
@@ -197,12 +205,13 @@ _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
     "r_1": "approved for trains up to 100 km/h",
     "r_2": "approved for trains up to 100 km/h",
     # rr
-    "rr_1": "approved for trains up to 100 km/h (higher)",
+    "rr_1": "approved for trains up to 100 km/h (special)",
     # s
     "s_1": "approved for trains up to 100 km/h",
     # ss
     "ss_1": "approved for trains up to 120 km/h",
 }
+
 
 def _resolve_letter_description(letter_code: str, wagon_class_letter: str) -> str:
     """
@@ -218,6 +227,7 @@ def _resolve_letter_description(letter_code: str, wagon_class_letter: str) -> st
             return _FREIGHT_CODE_DESCRIPTIONS.get(suffix, suffix)
     return letter_code
 
+
 # Wagon class lookup: d4 digit → (number_code, letter_code, description)
 _WAGON_CLASS = {
     "0": ("0", "T", "Opening roof wagon"),
@@ -231,6 +241,7 @@ _WAGON_CLASS = {
     "8": ("8", "I", "Temperature controlled wagon"),
     "9": ("9", "U", "Special wagon"),
 }
+
 
 # ── UIC structure constants ────────────────────────────────────────────────────
 #
@@ -249,6 +260,11 @@ _WAGON_CLASS = {
 #   0-3   → freight wagon
 #   4-8   → special/service/infrastructure wagon
 #   9     → passenger/coaching stock
+#
+# Axle structure is determined by d0d1 interoperability code:
+#   00-09, 20-29, 40-49  → Single axles (typically 2-axle wagons)
+#   10-19, 30-39, 80-89  → Bogies (typically 4-axle wagons, 2 bogies × 2 axles)
+
 
 _WAGON_CATEGORY_BY_D0 = {
     "0": "freight", "1": "freight", "2": "freight", "3": "freight",
@@ -256,6 +272,19 @@ _WAGON_CATEGORY_BY_D0 = {
     "7": "special", "8": "special",
     "9": "passenger",
 }
+
+
+def _is_bogie_wagon(type_int: int):
+    """
+    Returns True if the interoperability code indicates a bogie wagon,
+    False for single-axle wagons, None if undetermined (special/passenger/unknown).
+    """
+    if 0 <= type_int <= 9 or 20 <= type_int <= 29 or 40 <= type_int <= 49:
+        return False  # single axles → standard 2-axle wagon
+    if 10 <= type_int <= 19 or 30 <= type_int <= 39 or 80 <= type_int <= 89:
+        return True   # bogies → standard 4-axle wagon (2 bogies × 2 axles)
+    return None
+
 
 # ── Core decoder ───────────────────────────────────────────────────────────────
 
@@ -440,6 +469,15 @@ class RailWagonMixin(models.AbstractModel):
     uic_axle_count = fields.Char(
         string="Axle Count",
         compute="_compute_uic_decoded", store=True,
+        help="Derived from freight letter codes (a/aa/aaa) with fallback "
+             "inference from the UIC interoperability digit (d0d1). "
+             "Standard 2-axle wagons carry no axle letter code.",
+    )
+    uic_axle_count_int = fields.Integer(
+        string="Axle Count (numeric)",
+        compute="_compute_uic_decoded", store=True,
+        help="Numeric axle count for summation across wagons in a consignment. "
+             "0 means undetermined.",
     )
     uic_lc1_code = fields.Char(string="Code 1", compute="_compute_uic_decoded", store=True)
     uic_lc1_desc = fields.Char(string="Description 1", compute="_compute_uic_decoded", store=True)
@@ -487,8 +525,10 @@ class RailWagonMixin(models.AbstractModel):
             rec.uic_interoperability_code = (res.d0 + res.d1) if res.valid else False
 
             fwt = gauge = axle = False
+            bogie = None
             if res.valid:
                 type_int = int(res.d0 + res.d1)
+                bogie = _is_bogie_wagon(type_int)
                 if 0 <= type_int <= 9:
                     fwt, gauge, axle = "TEN/COTIF RIV", "Fixed gauge", "Single axles"
                 elif 10 <= type_int <= 19:
@@ -548,14 +588,40 @@ class RailWagonMixin(models.AbstractModel):
             else:
                 rec.uic_load_capacity = False
 
-            if "aaa" in lc_set:
-                rec.uic_axle_count = "8 axles"
-            elif "aa" in lc_set:
-                rec.uic_axle_count = "6 axles"
-            elif "a" in lc_set:
-                rec.uic_axle_count = "4 axles"
+            # ── Axle count resolution ─────────────────────────────────────────
+            # Priority order:
+            #   1. aaa letter code → 8 axles  (explicit, ERA P9)
+            #   2. aa  letter code → 6 axles  (explicit, ERA P9)
+            #   3. a   letter code → 4 axles  (explicit, ERA P9)
+            #   4. No axle code + bogie interop → 4 axles  (inferred, 2 bogies × 2)
+            #   5. No axle code + single-axle interop → 2 axles  (standard default)
+            #   6. Non-freight or undetermined → False / 0
+            if res.wagon_category == "freight" and res.valid:
+                if "aaa" in lc_set:
+                    rec.uic_axle_count = "8 axles"
+                    rec.uic_axle_count_int = 8
+                elif "aa" in lc_set:
+                    rec.uic_axle_count = "6 axles"
+                    rec.uic_axle_count_int = 6
+                elif "a" in lc_set:
+                    rec.uic_axle_count = "4 axles"
+                    rec.uic_axle_count_int = 4
+                elif bogie is True:
+                    # Bogie wagon without explicit axle letter code:
+                    # 2 bogies × 2 axles = 4 axles (standard)
+                    rec.uic_axle_count = "4 axles (inferred, bogie)"
+                    rec.uic_axle_count_int = 4
+                elif bogie is False:
+                    # Single-axle wagon without explicit axle letter code:
+                    # standard 2-axle wagon
+                    rec.uic_axle_count = "2 axles"
+                    rec.uic_axle_count_int = 2
+                else:
+                    rec.uic_axle_count = False
+                    rec.uic_axle_count_int = 0
             else:
                 rec.uic_axle_count = False
+                rec.uic_axle_count_int = 0
 
             descs = res.freight_letter_descs or []
             for i in range(1, 9):

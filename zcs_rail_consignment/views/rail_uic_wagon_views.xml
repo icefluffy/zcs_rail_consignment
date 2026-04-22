@@ -3,6 +3,7 @@
     <data>
 
 
+
         <record id="view_rail_uic_wagon_form" model="ir.ui.view">
             <field name="name">rail.uic.wagon.form</field>
             <field name="model">rail.uic.wagon</field>
@@ -38,7 +39,14 @@
                             invisible="uic_wagon_category != 'freight'">
                             <field name="uic_max_speed" readonly="1"/>
                             <field name="uic_load_capacity" readonly="1"/>
+                            <!-- uic_axle_count: human-readable label, includes
+                                 "(inferred, bogie)" suffix when derived from d0d1
+                                 rather than an explicit ERA P9 letter code. -->
                             <field name="uic_axle_count" readonly="1"/>
+                            <!-- uic_axle_count_int: numeric value for summation
+                                 across wagon lines in a consignment. Hidden on the
+                                 decoder form but used by consignment totals. -->
+                            <field name="uic_axle_count_int" readonly="1" invisible="1"/>
                         </group>
                         <group string="Validation">
                             <field name="uic_decode_valid" readonly="1"/>
@@ -50,6 +58,8 @@
         </record>
 
 
+
+        <!-- List view: uic_axle_count added for at-a-glance axle info. -->
         <record id="view_rail_uic_wagon_list" model="ir.ui.view">
             <field name="name">rail.uic.wagon.list</field>
             <field name="model">rail.uic.wagon</field>
@@ -60,10 +70,12 @@
                     <field name="uic_country_name"/>
                     <field name="uic_wagon_category"/>
                     <field name="uic_freight_letter_codes"/>
+                    <field name="uic_axle_count"/>
                     <field name="uic_check_digit_ok"/>
                 </list>
             </field>
         </record>
+
 
 
         <record id="action_rail_uic_wagon" model="ir.actions.act_window">
@@ -72,6 +84,7 @@
             <field name="view_mode">form</field>
             <field name="target">current</field>
         </record>
+
 
 
     </data>
