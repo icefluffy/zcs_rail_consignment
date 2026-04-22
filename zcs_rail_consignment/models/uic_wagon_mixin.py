@@ -455,9 +455,53 @@ class RailWagonMixin(models.AbstractModel):
         help="Individual letter codes from ERA Appendix 6 / P9 table, "
              "space-separated. Only populated for freight wagons.",
     )
-    uic_max_speed    = fields.Char(string="Max Speed", readonly=True, compute="_compute_uic")
-    uic_load_capacity = fields.Char(string="Load Capacity", readonly=True, compute="_compute_uic")
-    uic_axle_count   = fields.Char(string="Axle Count", readonly=True, compute="_compute_uic")
+    uic_max_speed = fields.Char(
+        string="Max Speed",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_load_capacity = fields.Char(
+        string="Load Capacity",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_axle_count = fields.Char(
+        string="Axle Count",
+        compute="_compute_uic_decoded", store=True,
+    )
+
+    # ── Max speed / load capacity / axle count from letter codes ──────
+    lc_set = set(res.freight_letter_codes) if res.freight_letter_codes else set()
+
+    if "ss" in lc_set:
+        rec.uic_max_speed = "120 km/h"
+    elif "s" in lc_set or "g" in lc_set:
+        rec.uic_max_speed = "100 km/h"
+    elif "rr" in lc_set:
+        rec.uic_max_speed = "100 km/h (special)"
+    elif "r" in lc_set:
+        rec.uic_max_speed = "100 km/h"
+    else:
+        rec.uic_max_speed = False
+
+    if "ll" in lc_set:
+        rec.uic_load_capacity = "≥ 80 t"
+    elif "l" in lc_set:
+        rec.uic_load_capacity = "≥ 60 t"
+    elif "mm" in lc_set:
+        rec.uic_load_capacity = "> 80 t"
+    elif "m" in lc_set:
+        rec.uic_load_capacity = "> 60 t"
+    else:
+        rec.uic_load_capacity = False
+
+    if "aaa" in lc_set:
+        rec.uic_axle_count = "8 axles"
+    elif "aa" in lc_set:
+        rec.uic_axle_count = "6 axles"
+    elif "a" in lc_set:
+        rec.uic_axle_count = "4 axles"
+    else:
+        rec.uic_axle_count = False
+
     # Individual letter code description fields (up to 8 codes per wagon)
     uic_lc1_code = fields.Char(string="Code 1", compute="_compute_uic_decoded", store=True)
     uic_lc1_desc = fields.Char(string="Description 1", compute="_compute_uic_decoded", store=True)
