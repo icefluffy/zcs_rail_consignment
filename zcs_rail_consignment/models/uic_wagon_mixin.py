@@ -13,7 +13,9 @@ import os
 import logging
 from odoo import models, fields, api
 
+
 _logger = logging.getLogger(__name__)
+
 
 # ── Data loading ───────────────────────────────────────────────────────────────
 
@@ -37,11 +39,28 @@ for _entry in reversed(_COUNTRY_LIST):          # reversed → first entry wins 
         "letter_code": _entry["letter_code"],
     }
 
+
 # Freight classification: top-level key = digit-0 (str "0".."9")
 #   → sub-key = digits-1-2 ("00".."99")
 #   → sub-sub-key = digit-9 ("0".."9")
 #   → value = concatenated character codes (str)
-_FREIGHT_CLASSIFICATION: dict[str, dict[str, dict[str, str]]] =     _load_json("uic_freight_classification_codes.json")
+_FREIGHT_CLASSIFICATION: dict[str, dict[str, dict[str, str]]] = \
+    _load_json("uic_freight_classification_codes.json")
+
+
+# Wagon class lookup: d4 digit → (number_code, letter_code, description)
+_WAGON_CLASS = {
+    "0": ("0", "T", "Opening roof wagon"),
+    "1": ("1", "G", "Ordinary covered wagon"),
+    "2": ("2", "H", "Special covered wagon"),
+    "3": ("3", "K", "Flat wagon (2-axle)"),
+    "4": ("4", "L", "Special flat wagon"),
+    "5": ("5", "E", "Ordinary open high-sided wagon"),
+    "6": ("6", "F", "Special open high-sided wagon"),
+    "7": ("7", "Z", "Tank wagon"),
+    "8": ("8", "I", "Temperature controlled wagon"),
+    "9": ("9", "U", "Special wagon"),
+}
 
 
 # ── UIC structure constants ────────────────────────────────────────────────────
@@ -81,6 +100,7 @@ _WAGON_CATEGORY_BY_D0 = {
 
 
 # ── Core decoder ───────────────────────────────────────────────────────────────
+
 
 class UICWagonDecodeResult:
     """Plain data object returned by decode_uic_evn()."""
@@ -185,6 +205,7 @@ def decode_uic_evn(raw: str) -> UICWagonDecodeResult:
 
 # ── Odoo model mixin ───────────────────────────────────────────────────────────
 
+
 class RailWagonMixin(models.AbstractModel):
     """
     Mix into any wagon / rolling-stock model to get UIC decoding fields.
@@ -206,6 +227,34 @@ class RailWagonMixin(models.AbstractModel):
 
     # ── Computed / decoded fields ──────────────────────────────────────────────
 
+    uic_interoperability_code = fields.Char(
+        string="Interoperability Code",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_freight_wagon_type = fields.Char(
+        string="Freight Wagon Type",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_gauge_type = fields.Char(
+        string="Gauge Type",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_axle_type = fields.Char(
+        string="Axle Type",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_wagon_class_number = fields.Char(
+        string="Class Number Code",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_wagon_class_letter = fields.Char(
+        string="Class Letter Code",
+        compute="_compute_uic_decoded", store=True,
+    )
+    uic_wagon_class_desc = fields.Char(
+        string="Class Description",
+        compute="_compute_uic_decoded", store=True,
+    )
     uic_country_code = fields.Char(
         string="Country Code",
         compute="_compute_uic_decoded",
@@ -256,16 +305,50 @@ class RailWagonMixin(models.AbstractModel):
             evn = rec.uic_evn or ""
             res = decode_uic_evn(evn)
 
-            rec.uic_decode_valid          = res.valid
-            rec.uic_check_digit_ok        = res.check_digit_ok
-            rec.uic_country_code          = res.country_code
-            rec.uic_country_name          = res.country_name
-            rec.uic_country_letter        = res.country_letter_code
-            rec.uic_wagon_category        = res.wagon_category if res.valid else False
-            rec.uic_freight_letter_codes  = (
+            rec.uic_decode_valid         = res.valid
+            rec.uic_check_digit_ok       = res.check_digit_ok
+            rec.uic_country_code         = res.country_code
+            rec.uic_country_name         = res.country_name
+            rec.uic_country_letter       = res.country_letter_code
+            rec.uic_wagon_category       = res.wagon_category if res.valid else False
+            rec.uic_freight_letter_codes = (
                 " ".join(res.freight_letter_codes)
                 if res.freight_letter_codes else False
             )
+
+            # ── Interoperability code (d0 + d1) ───────────────────────────────
+            rec.uic_interoperability_code = (res.d0 + res.d1) if res.valid else False
+
+            # ── Freight wagon type / gauge / axle from d0d1 ───────────────────
+            fwt = gauge = axle = False
+            if res.valid:
+                type_int = int(res.d0 + res.d1)
+                if 0 <= type_int <= 9:
+                    fwt, gauge, axle = "TEN/COTIF RIV", "Fixed gauge", "Single axles"
+                elif 10 <= type_int <= 19:
+                    fwt, gauge, axle = "TEN/COTIF RIV", "Fixed gauge", "Bogies"
+                elif 20 <= type_int <= 29:
+                    fwt, gauge, axle = "TEN/COTIF RIV", "Variable gauge", "Single axles"
+                elif 30 <= type_int <= 39:
+                    fwt, gauge, axle = "TEN/COTIF RIV", "Variable gauge", "Bogies"
+                elif 40 <= type_int <= 49:
+                    fwt, gauge, axle = "Other", "Fixed/variable gauge", "Single axles"
+                elif 80 <= type_int <= 89:
+                    fwt, gauge, axle = "Other", "Fixed/variable gauge", "Bogies"
+            rec.uic_freight_wagon_type = fwt
+            rec.uic_gauge_type         = gauge
+            rec.uic_axle_type          = axle
+
+            # ── Wagon class from d4 (first digit of series) ───────────────────
+            if res.valid and res.wagon_category == "freight" and res.d4_d8:
+                cls = _WAGON_CLASS.get(res.d4_d8[0], (False, False, False))
+                rec.uic_wagon_class_number = cls[0]
+                rec.uic_wagon_class_letter = cls[1]
+                rec.uic_wagon_class_desc   = cls[2]
+            else:
+                rec.uic_wagon_class_number = False
+                rec.uic_wagon_class_letter = False
+                rec.uic_wagon_class_desc   = False
 
     # ── Utility methods ────────────────────────────────────────────────────────
 
