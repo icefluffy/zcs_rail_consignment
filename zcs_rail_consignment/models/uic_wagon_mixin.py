@@ -455,6 +455,9 @@ class RailWagonMixin(models.AbstractModel):
         help="Individual letter codes from ERA Appendix 6 / P9 table, "
              "space-separated. Only populated for freight wagons.",
     )
+    uic_max_speed    = fields.Char(string="Max Speed", readonly=True, compute="_compute_uic")
+    uic_load_capacity = fields.Char(string="Load Capacity", readonly=True, compute="_compute_uic")
+    uic_axle_count   = fields.Char(string="Axle Count", readonly=True, compute="_compute_uic")
     # Individual letter code description fields (up to 8 codes per wagon)
     uic_lc1_code = fields.Char(string="Code 1", compute="_compute_uic_decoded", store=True)
     uic_lc1_desc = fields.Char(string="Description 1", compute="_compute_uic_decoded", store=True)
