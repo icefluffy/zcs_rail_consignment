@@ -14,20 +14,16 @@ import os
 import logging
 from odoo import models, fields, api
 
-
 _logger = logging.getLogger(__name__)
-
 
 # ── Data loading ───────────────────────────────────────────────────────────────
 
 def _data_path(filename):
     return os.path.join(os.path.dirname(__file__), '..', 'data', filename)
 
-
 def _load_json(filename):
     with open(_data_path(filename), encoding="utf-8") as fh:
         return json.load(fh)
-
 
 # Country lookup: number_code (str) → {name, letter_code}
 # Duplicates (44, 49, 50 → BIH) are preserved; first entry wins on dup.
@@ -39,27 +35,16 @@ for _entry in reversed(_COUNTRY_LIST):
         "letter_code": _entry["letter_code"],
     }
 
-
 # Freight classification codes: d0 → d2d3 → d9 → concatenated letter code string
 _FREIGHT_CLASSIFICATION: dict[str, dict[str, dict[str, str]]] = \
     _load_json("uic_freight_classification_codes.json")
 
-
 # Freight letter code descriptions:
 # letter_code (lowercase) → { i18n_key: [wagon_class_letters, ...], ... }
-# We pre-build an inverted map: (letter_code, wagon_class_letter) → i18n_key
-# The i18n_key itself is the human-readable description key; we strip the
-# prefix to get the description string:
-#   "uic_freight_codes_a_1" → "a_1"
-# For display we convert the key to English using a hard-coded translation
-# table (the Dart project stores these as i18n keys; we resolve them here).
-
 _FREIGHT_DESCRIPTIONS_RAW: dict[str, dict[str, list[str]]] = \
     _load_json("uic_freight_classification_descriptions.json")
 
-
 # Human-readable descriptions keyed by the i18n key suffix (e.g. "a_1").
-# Sourced from ERA/UIC P9 / Appendix 6 / gc_wizard translations.
 _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
     # a
     "a_1": "4 axles",
@@ -72,19 +57,19 @@ _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
     # aaa
     "aaa_1": "8 axles",
     # b
-    "b_1": "loading length ≥ 18.4 m",
-    "b_2": "loading length ≥ 18.4 m",
-    "b_3": "loading length ≥ 18.4 m",
-    "b_4": "loading length ≥ 18.4 m",
-    "b_5": "loading length ≥ 18.4 m",
-    "b_6": "loading length ≥ 18.4 m",
-    "b_7": "loading length ≥ 18.4 m",
-    "b_8": "loading length ≥ 18.4 m",
-    "b_9": "loading length ≥ 18.4 m",
+    "b_1": "loading length >= 18.4 m",
+    "b_2": "loading length >= 18.4 m",
+    "b_3": "loading length >= 18.4 m",
+    "b_4": "loading length >= 18.4 m",
+    "b_5": "loading length >= 18.4 m",
+    "b_6": "loading length >= 18.4 m",
+    "b_7": "loading length >= 18.4 m",
+    "b_8": "loading length >= 18.4 m",
+    "b_9": "loading length >= 18.4 m",
     # bb
-    "bb_1": "loading length ≥ 22.5 m",
-    "bb_2": "loading length ≥ 22.5 m",
-    "bb_3": "loading length ≥ 22.5 m",
+    "bb_1": "loading length >= 22.5 m",
+    "bb_2": "loading length >= 22.5 m",
+    "bb_3": "loading length >= 22.5 m",
     # c
     "c_1": "load limit D",
     "c_2": "load limit D",
@@ -153,15 +138,15 @@ _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
     "kk_2": "braked with disc brakes (both bogies)",
     "kk_3": "braked with disc brakes (both bogies)",
     # l
-    "l_1": "approx. carrying capacity ≥ 60 t",
-    "l_2": "approx. carrying capacity ≥ 60 t",
-    "l_3": "approx. carrying capacity ≥ 60 t",
-    "l_4": "approx. carrying capacity ≥ 60 t",
-    "l_5": "approx. carrying capacity ≥ 60 t",
-    "l_6": "approx. carrying capacity ≥ 60 t",
+    "l_1": "approx. carrying capacity >= 60 t",
+    "l_2": "approx. carrying capacity >= 60 t",
+    "l_3": "approx. carrying capacity >= 60 t",
+    "l_4": "approx. carrying capacity >= 60 t",
+    "l_5": "approx. carrying capacity >= 60 t",
+    "l_6": "approx. carrying capacity >= 60 t",
     # ll
-    "ll_1": "approx. carrying capacity ≥ 80 t",
-    "ll_2": "approx. carrying capacity ≥ 80 t",
+    "ll_1": "approx. carrying capacity >= 80 t",
+    "ll_2": "approx. carrying capacity >= 80 t",
     # m
     "m_1": "load mass m > 60 t (load limit C)",
     "m_2": "load mass m > 60 t (load limit C)",
@@ -219,7 +204,6 @@ _FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
     "ss_1": "approved for trains up to 120 km/h",
 }
 
-
 def _resolve_letter_description(letter_code: str, wagon_class_letter: str) -> str:
     """
     Given a single lowercase letter code (e.g. 'a') and the wagon class
@@ -229,15 +213,10 @@ def _resolve_letter_description(letter_code: str, wagon_class_letter: str) -> st
     entry = _FREIGHT_DESCRIPTIONS_RAW.get(letter_code, {})
     for i18n_key, wagon_list in entry.items():
         if wagon_class_letter in wagon_list:
-            # Key looks like "uic_freight_codes_a_1" → suffix = "a_1"
-            suffix = "_".join(i18n_key.split("_")[-2:])
-            # Handle m_10 (3-part suffix)
             parts = i18n_key.split("_")
-            # strip the "uic_freight_codes_" prefix (4 parts) and rejoin
             suffix = "_".join(parts[3:])
             return _FREIGHT_CODE_DESCRIPTIONS.get(suffix, suffix)
-    return letter_code  # fallback: just return the raw code
-
+    return letter_code
 
 # Wagon class lookup: d4 digit → (number_code, letter_code, description)
 _WAGON_CLASS = {
@@ -252,7 +231,6 @@ _WAGON_CLASS = {
     "8": ("8", "I", "Temperature controlled wagon"),
     "9": ("9", "U", "Special wagon"),
 }
-
 
 # ── UIC structure constants ────────────────────────────────────────────────────
 #
@@ -279,7 +257,6 @@ _WAGON_CATEGORY_BY_D0 = {
     "9": "passenger",
 }
 
-
 # ── Core decoder ───────────────────────────────────────────────────────────────
 
 
@@ -290,8 +267,8 @@ class UICWagonDecodeResult:
         "raw", "valid", "check_digit_ok",
         "country_code", "country_name", "country_letter_code",
         "wagon_category",
-        "freight_letter_codes",   # list[str]
-        "freight_letter_descs",   # list[tuple[str, str]] – (letter, description)
+        "freight_letter_codes",
+        "freight_letter_descs",
         "d0", "d1", "d2d3", "d4_d8", "d9", "d10", "d11",
     )
 
@@ -337,19 +314,19 @@ def decode_uic_evn(raw: str) -> UICWagonDecodeResult:
         return result
 
     result.valid = True
-    result.d0    = digits[0]
-    result.d1    = digits[1]
-    result.d2d3  = digits[2:4]
+    result.d0 = digits[0]
+    result.d1 = digits[1]
+    result.d2d3 = digits[2:4]
     result.d4_d8 = digits[4:9]
-    result.d9    = digits[9]
-    result.d10   = digits[10]
-    result.d11   = digits[11]
+    result.d9 = digits[9]
+    result.d10 = digits[10]
+    result.d11 = digits[11]
 
     result.check_digit_ok = _luhn_check(digits)
 
     country = _COUNTRY_BY_CODE.get(result.d2d3, {})
-    result.country_code        = result.d2d3
-    result.country_name        = country.get("name")
+    result.country_code = result.d2d3
+    result.country_name = country.get("name")
     result.country_letter_code = country.get("letter_code")
 
     result.wagon_category = _WAGON_CATEGORY_BY_D0.get(result.d0, "unknown")
@@ -358,7 +335,6 @@ def decode_uic_evn(raw: str) -> UICWagonDecodeResult:
         result.freight_letter_codes = _resolve_freight_letter_codes(
             result.d0, result.d2d3, result.d9
         )
-        # Resolve descriptions using wagon class letter
         cls_letter = False
         if result.d4_d8:
             cls_letter = _WAGON_CLASS.get(result.d4_d8[0], (False, False, False))[1]
@@ -389,10 +365,8 @@ class RailWagonMixin(models.AbstractModel):
     uic_evn = fields.Char(
         string="UIC EVN (12 digits)",
         size=20,
-        help="European Vehicle Number – 12 digits, spaces/dashes allowed.",
+        help="European Vehicle Number - 12 digits, spaces/dashes allowed.",
     )
-
-    # ── Computed / decoded fields ──────────────────────────────────────────────
 
     uic_interoperability_code = fields.Char(
         string="Interoperability Code",
@@ -441,10 +415,10 @@ class RailWagonMixin(models.AbstractModel):
     )
     uic_wagon_category = fields.Selection(
         selection=[
-            ("freight",   "Freight"),
+            ("freight", "Freight"),
             ("passenger", "Passenger"),
-            ("special",   "Special / Infrastructure"),
-            ("unknown",   "Unknown"),
+            ("special", "Special / Infrastructure"),
+            ("unknown", "Unknown"),
         ],
         string="Wagon Category",
         compute="_compute_uic_decoded", store=True,
@@ -467,42 +441,6 @@ class RailWagonMixin(models.AbstractModel):
         string="Axle Count",
         compute="_compute_uic_decoded", store=True,
     )
-
-    # ── Max speed / load capacity / axle count from letter codes ──────
-    lc_set = set(res.freight_letter_codes) if res.freight_letter_codes else set()
-
-    if "ss" in lc_set:
-        rec.uic_max_speed = "120 km/h"
-    elif "s" in lc_set or "g" in lc_set:
-        rec.uic_max_speed = "100 km/h"
-    elif "rr" in lc_set:
-        rec.uic_max_speed = "100 km/h (special)"
-    elif "r" in lc_set:
-        rec.uic_max_speed = "100 km/h"
-    else:
-        rec.uic_max_speed = False
-
-    if "ll" in lc_set:
-        rec.uic_load_capacity = "≥ 80 t"
-    elif "l" in lc_set:
-        rec.uic_load_capacity = "≥ 60 t"
-    elif "mm" in lc_set:
-        rec.uic_load_capacity = "> 80 t"
-    elif "m" in lc_set:
-        rec.uic_load_capacity = "> 60 t"
-    else:
-        rec.uic_load_capacity = False
-
-    if "aaa" in lc_set:
-        rec.uic_axle_count = "8 axles"
-    elif "aa" in lc_set:
-        rec.uic_axle_count = "6 axles"
-    elif "a" in lc_set:
-        rec.uic_axle_count = "4 axles"
-    else:
-        rec.uic_axle_count = False
-
-    # Individual letter code description fields (up to 8 codes per wagon)
     uic_lc1_code = fields.Char(string="Code 1", compute="_compute_uic_decoded", store=True)
     uic_lc1_desc = fields.Char(string="Description 1", compute="_compute_uic_decoded", store=True)
     uic_lc2_code = fields.Char(string="Code 2", compute="_compute_uic_decoded", store=True)
@@ -535,21 +473,19 @@ class RailWagonMixin(models.AbstractModel):
             evn = rec.uic_evn or ""
             res = decode_uic_evn(evn)
 
-            rec.uic_decode_valid         = res.valid
-            rec.uic_check_digit_ok       = res.check_digit_ok
-            rec.uic_country_code         = res.country_code
-            rec.uic_country_name         = res.country_name
-            rec.uic_country_letter       = res.country_letter_code
-            rec.uic_wagon_category       = res.wagon_category if res.valid else False
+            rec.uic_decode_valid = res.valid
+            rec.uic_check_digit_ok = res.check_digit_ok
+            rec.uic_country_code = res.country_code
+            rec.uic_country_name = res.country_name
+            rec.uic_country_letter = res.country_letter_code
+            rec.uic_wagon_category = res.wagon_category if res.valid else False
             rec.uic_freight_letter_codes = (
                 " ".join(res.freight_letter_codes)
                 if res.freight_letter_codes else False
             )
 
-            # ── Interoperability code (d0 + d1) ───────────────────────────────
             rec.uic_interoperability_code = (res.d0 + res.d1) if res.valid else False
 
-            # ── Freight wagon type / gauge / axle from d0d1 ───────────────────
             fwt = gauge = axle = False
             if res.valid:
                 type_int = int(res.d0 + res.d1)
@@ -566,23 +502,21 @@ class RailWagonMixin(models.AbstractModel):
                 elif 80 <= type_int <= 89:
                     fwt, gauge, axle = "Other", "Fixed/variable gauge", "Bogies"
             rec.uic_freight_wagon_type = fwt
-            rec.uic_gauge_type         = gauge
-            rec.uic_axle_type          = axle
+            rec.uic_gauge_type = gauge
+            rec.uic_axle_type = axle
 
-            # ── Wagon class from d4 ────────────────────────────────────────────
             cls_letter = False
             if res.valid and res.wagon_category == "freight" and res.d4_d8:
                 cls = _WAGON_CLASS.get(res.d4_d8[0], (False, False, False))
                 rec.uic_wagon_class_number = cls[0]
                 rec.uic_wagon_class_letter = cls[1]
-                rec.uic_wagon_class_desc   = cls[2]
+                rec.uic_wagon_class_desc = cls[2]
                 cls_letter = cls[1]
             else:
                 rec.uic_wagon_class_number = False
                 rec.uic_wagon_class_letter = False
-                rec.uic_wagon_class_desc   = False
+                rec.uic_wagon_class_desc = False
 
-            # ── Combined classification code e.g. "Eanos" ─────────────────────
             if cls_letter and res.freight_letter_codes:
                 rec.uic_classification_code = cls_letter + "".join(res.freight_letter_codes)
             elif cls_letter:
@@ -590,7 +524,39 @@ class RailWagonMixin(models.AbstractModel):
             else:
                 rec.uic_classification_code = False
 
-            # ── Individual letter code descriptions ────────────────────────────
+            lc_set = set(res.freight_letter_codes) if res.freight_letter_codes else set()
+
+            if "ss" in lc_set:
+                rec.uic_max_speed = "120 km/h"
+            elif "s" in lc_set or "g" in lc_set:
+                rec.uic_max_speed = "100 km/h"
+            elif "rr" in lc_set:
+                rec.uic_max_speed = "100 km/h (special)"
+            elif "r" in lc_set:
+                rec.uic_max_speed = "100 km/h"
+            else:
+                rec.uic_max_speed = False
+
+            if "ll" in lc_set:
+                rec.uic_load_capacity = ">= 80 t"
+            elif "l" in lc_set:
+                rec.uic_load_capacity = ">= 60 t"
+            elif "mm" in lc_set:
+                rec.uic_load_capacity = "> 80 t"
+            elif "m" in lc_set:
+                rec.uic_load_capacity = "> 60 t"
+            else:
+                rec.uic_load_capacity = False
+
+            if "aaa" in lc_set:
+                rec.uic_axle_count = "8 axles"
+            elif "aa" in lc_set:
+                rec.uic_axle_count = "6 axles"
+            elif "a" in lc_set:
+                rec.uic_axle_count = "4 axles"
+            else:
+                rec.uic_axle_count = False
+
             descs = res.freight_letter_descs or []
             for i in range(1, 9):
                 if i <= len(descs):
@@ -600,38 +566,36 @@ class RailWagonMixin(models.AbstractModel):
                     setattr(rec, f"uic_lc{i}_code", False)
                     setattr(rec, f"uic_lc{i}_desc", False)
 
-    # ── Utility methods ────────────────────────────────────────────────────────
-
     def action_decode_uic(self):
         self.ensure_one()
         res = decode_uic_evn(self.uic_evn or "")
         if not res.valid:
             return {
-                "type":    "ir.actions.client",
-                "tag":     "display_notification",
+                "type": "ir.actions.client",
+                "tag": "display_notification",
                 "params": {
-                    "title":   "UIC Decode",
-                    "message": "Invalid or incomplete EVN – must be 12 digits.",
-                    "type":    "warning",
-                    "sticky":  False,
+                    "title": "UIC Decode",
+                    "message": "Invalid or incomplete EVN - must be 12 digits.",
+                    "type": "warning",
+                    "sticky": False,
                 },
             }
         lines = [
             f"Country:      {res.country_name or '?'} ({res.country_code})",
-            f"Letter code:  {res.country_letter_code or '–'}",
+            f"Letter code:  {res.country_letter_code or '-'}",
             f"Category:     {res.wagon_category}",
-            f"Check digit:  {'✓ OK' if res.check_digit_ok else '✗ FAIL'}",
+            f"Check digit:  {'OK' if res.check_digit_ok else 'FAIL'}",
         ]
         if res.freight_letter_codes:
             lines.append(f"Freight codes: {' '.join(res.freight_letter_codes)}")
         return {
-            "type":    "ir.actions.client",
-            "tag":     "display_notification",
+            "type": "ir.actions.client",
+            "tag": "display_notification",
             "params": {
-                "title":   f"UIC EVN {self.uic_evn}",
+                "title": f"UIC EVN {self.uic_evn}",
                 "message": "\n".join(lines),
-                "type":    "info",
-                "sticky":  True,
+                "type": "info",
+                "sticky": True,
             },
         }
 
