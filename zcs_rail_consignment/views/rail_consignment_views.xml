@@ -6,18 +6,6 @@
         <field name="view_mode">form</field>
     </record>
 
-    <menuitem
-        id="menu_rail_validator_root"
-        name="Consignment Tools"
-        sequence="10"
-    />
-    <menuitem
-        id="menu_rail_validator"
-        name="Rail and Container Validator"
-        parent="menu_rail_validator_root"
-        action="action_rail_validator"
-    />
-
     <record id="rail_validator_form" model="ir.ui.view">
         <field name="name">rail.consignment.validator.form</field>
         <field name="model">rail.consignment.validator</field>
