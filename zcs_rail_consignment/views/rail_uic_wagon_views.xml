@@ -2,6 +2,7 @@
 <odoo>
     <data>
 
+
         <record id="view_rail_uic_wagon_form" model="ir.ui.view">
             <field name="name">rail.uic.wagon.form</field>
             <field name="model">rail.uic.wagon</field>
@@ -33,6 +34,12 @@
                             <field name="uic_wagon_class_desc" readonly="1"/>
                             <field name="uic_freight_letter_codes" readonly="1"/>
                         </group>
+                        <group string="Dimensions"
+                            invisible="uic_wagon_category != 'freight'">
+                            <field name="uic_max_speed" readonly="1"/>
+                            <field name="uic_load_capacity" readonly="1"/>
+                            <field name="uic_axle_count" readonly="1"/>
+                        </group>
                         <group string="Validation">
                             <field name="uic_decode_valid" readonly="1"/>
                             <field name="uic_check_digit_ok" readonly="1"/>
@@ -41,6 +48,7 @@
                 </form>
             </field>
         </record>
+
 
         <record id="view_rail_uic_wagon_list" model="ir.ui.view">
             <field name="name">rail.uic.wagon.list</field>
@@ -57,12 +65,14 @@
             </field>
         </record>
 
+
         <record id="action_rail_uic_wagon" model="ir.actions.act_window">
             <field name="name">UIC Wagon Decoder</field>
             <field name="res_model">rail.uic.wagon</field>
             <field name="view_mode">form</field>
             <field name="target">current</field>
         </record>
+
 
     </data>
 </odoo>
