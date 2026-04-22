@@ -8,25 +8,24 @@
             <field name="arch" type="xml">
                 <form string="UIC Wagon Decoder">
                     <sheet>
-                        <group>
+                        <group string="Input">
                             <field name="name"/>
                             <field name="uic_evn"/>
                         </group>
                         <group string="Decoded Result">
                             <group>
-                                <field name="uic_decode_valid"/>
-                                <field name="uic_check_digit_ok"/>
-                                <field name="uic_wagon_category"/>
+                                <field name="uic_decode_valid" readonly="1"/>
+                                <field name="uic_check_digit_ok" readonly="1"/>
+                                <field name="uic_wagon_category" readonly="1"/>
                             </group>
                             <group>
-                                <field name="uic_country_code"/>
-                                <field name="uic_country_name"/>
-                                <field name="uic_country_letter"/>
+                                <field name="uic_country_code" readonly="1"/>
+                                <field name="uic_country_name" readonly="1"/>
+                                <field name="uic_country_letter" readonly="1"/>
                             </group>
                         </group>
-                        <group string="Freight Classification"
-                               attrs="{'invisible': [('uic_wagon_category', '!=', 'freight')]}">
-                            <field name="uic_freight_letter_codes"/>
+                        <group string="Freight Classification">
+                            <field name="uic_freight_letter_codes" readonly="1"/>
                         </group>
                         <group string="Notes">
                             <field name="notes" nolabel="1"/>
