@@ -31,9 +31,9 @@
     <field name="type_desc" readonly="1"/>
     <field name="country_code" readonly="1"/>
     <field name="country_name" readonly="1"/>
-    <field name="company_code" readonly="1"/>
-    <field name="company_short_name" readonly="1"/>
-    <field name="company_full_name" readonly="1"/>
+<!--    <field name="company_code" readonly="1"/> -->
+<!--    <field name="company_short_name" readonly="1"/> -->
+<!--    <field name="company_full_name" readonly="1"/> -->
     <field name="keeper_code" readonly="1"/>
     <field name="serial_number" readonly="1"/>
     <field name="check_digit" readonly="1"/>
