@@ -3,9 +3,10 @@
 UIC Wagon Code decoder — Python/Odoo 18 Community Edition
 Ported from gc_wizard (Dart) – ERA Appendix 6 / P9 data.
 
-JSON data files expected next to this module file:
+JSON data files expected under the module's data/ folder:
   uic_country_codes.json
   uic_freight_classification_codes.json
+  uic_freight_classification_descriptions.json
 """
 
 import json
@@ -29,23 +30,213 @@ def _load_json(filename):
 
 
 # Country lookup: number_code (str) → {name, letter_code}
-# Duplicates (44, 49, 50 → BIH) are preserved as a list for display,
-# but for fast single-result lookup the first entry wins.
+# Duplicates (44, 49, 50 → BIH) are preserved; first entry wins on dup.
 _COUNTRY_LIST = _load_json("uic_country_codes.json")
 _COUNTRY_BY_CODE: dict[str, dict] = {}
-for _entry in reversed(_COUNTRY_LIST):          # reversed → first entry wins on dup
+for _entry in reversed(_COUNTRY_LIST):
     _COUNTRY_BY_CODE[_entry["number_code"]] = {
         "name":        _entry["name"],
         "letter_code": _entry["letter_code"],
     }
 
 
-# Freight classification: top-level key = digit-0 (str "0".."9")
-#   → sub-key = digits-1-2 ("00".."99")
-#   → sub-sub-key = digit-9 ("0".."9")
-#   → value = concatenated character codes (str)
+# Freight classification codes: d0 → d2d3 → d9 → concatenated letter code string
 _FREIGHT_CLASSIFICATION: dict[str, dict[str, dict[str, str]]] = \
     _load_json("uic_freight_classification_codes.json")
+
+
+# Freight letter code descriptions:
+# letter_code (lowercase) → { i18n_key: [wagon_class_letters, ...], ... }
+# We pre-build an inverted map: (letter_code, wagon_class_letter) → i18n_key
+# The i18n_key itself is the human-readable description key; we strip the
+# prefix to get the description string:
+#   "uic_freight_codes_a_1" → "a_1"
+# For display we convert the key to English using a hard-coded translation
+# table (the Dart project stores these as i18n keys; we resolve them here).
+
+_FREIGHT_DESCRIPTIONS_RAW: dict[str, dict[str, list[str]]] = \
+    _load_json("uic_freight_classification_descriptions.json")
+
+
+# Human-readable descriptions keyed by the i18n key suffix (e.g. "a_1").
+# Sourced from ERA/UIC P9 / Appendix 6 / gc_wizard translations.
+_FREIGHT_CODE_DESCRIPTIONS: dict[str, str] = {
+    # a
+    "a_1": "4 axles",
+    "a_2": "4 axles",
+    "a_3": "4 axles",
+    # aa
+    "aa_1": "6 axles",
+    "aa_2": "6 axles",
+    "aa_3": "6 axles",
+    # aaa
+    "aaa_1": "8 axles",
+    # b
+    "b_1": "loading length ≥ 18.4 m",
+    "b_2": "loading length ≥ 18.4 m",
+    "b_3": "loading length ≥ 18.4 m",
+    "b_4": "loading length ≥ 18.4 m",
+    "b_5": "loading length ≥ 18.4 m",
+    "b_6": "loading length ≥ 18.4 m",
+    "b_7": "loading length ≥ 18.4 m",
+    "b_8": "loading length ≥ 18.4 m",
+    "b_9": "loading length ≥ 18.4 m",
+    # bb
+    "bb_1": "loading length ≥ 22.5 m",
+    "bb_2": "loading length ≥ 22.5 m",
+    "bb_3": "loading length ≥ 22.5 m",
+    # c
+    "c_1": "load limit D",
+    "c_2": "load limit D",
+    "c_3": "load limit D",
+    "c_4": "load limit D",
+    "c_5": "load limit D",
+    "c_6": "load limit D",
+    # cc
+    "cc_1": "load limit D + higher",
+    "cc_2": "load limit D + higher",
+    # d
+    "d_1": "load limit E",
+    "d_2": "load limit E",
+    "d_3": "load limit E",
+    "d_4": "load limit E",
+    # dd
+    "dd_1": "load limit E + higher",
+    # e
+    "e_1": "load limit F",
+    "e_2": "load limit F",
+    "e_3": "load limit F",
+    "e_4": "load limit F",
+    "e_5": "load limit F",
+    "e_6": "load limit F",
+    # ee
+    "ee_1": "load limit F + higher",
+    # f
+    "f_1": "rolling floor",
+    # ff
+    "ff_1": "rolling floor (both ends)",
+    # fff
+    "fff_1": "rolling floor (all)",
+    # g
+    "g_1": "approved for trains up to 120 km/h",
+    "g_2": "approved for trains up to 120 km/h",
+    "g_3": "approved for trains up to 120 km/h",
+    "g_4": "approved for trains up to 120 km/h",
+    "g_5": "approved for trains up to 120 km/h",
+    # gg
+    "gg_1": "approved for trains up to 120 km/h (higher)",
+    "gg_2": "approved for trains up to 120 km/h (higher)",
+    # h
+    "h_1": "automatic emptying device",
+    "h_2": "automatic emptying device",
+    "h_3": "automatic emptying device",
+    # hh
+    "hh_1": "automatic emptying device (both sides)",
+    # i
+    "i_1": "with individual axle load-dependent braking",
+    "i_2": "with individual axle load-dependent braking",
+    "i_3": "with individual axle load-dependent braking",
+    "i_4": "with individual axle load-dependent braking",
+    "i_5": "with individual axle load-dependent braking",
+    # ii
+    "ii_2": "with individual axle load-dependent braking (higher)",
+    # j
+    "j_1": "special coupling",
+    # k
+    "k_1": "braked with disc brakes",
+    "k_2": "braked with disc brakes",
+    "k_3": "braked with disc brakes",
+    "k_4": "braked with disc brakes",
+    "k_5": "braked with disc brakes",
+    # kk
+    "kk_1": "braked with disc brakes (both bogies)",
+    "kk_2": "braked with disc brakes (both bogies)",
+    "kk_3": "braked with disc brakes (both bogies)",
+    # l
+    "l_1": "approx. carrying capacity ≥ 60 t",
+    "l_2": "approx. carrying capacity ≥ 60 t",
+    "l_3": "approx. carrying capacity ≥ 60 t",
+    "l_4": "approx. carrying capacity ≥ 60 t",
+    "l_5": "approx. carrying capacity ≥ 60 t",
+    "l_6": "approx. carrying capacity ≥ 60 t",
+    # ll
+    "ll_1": "approx. carrying capacity ≥ 80 t",
+    "ll_2": "approx. carrying capacity ≥ 80 t",
+    # m
+    "m_1": "load mass m > 60 t (load limit C)",
+    "m_2": "load mass m > 60 t (load limit C)",
+    "m_3": "load mass m > 60 t (load limit C)",
+    "m_4": "load mass m > 60 t (load limit C)",
+    "m_5": "load mass m > 60 t (load limit C)",
+    "m_6": "load mass m > 60 t (load limit C)",
+    "m_7": "load mass m > 60 t (load limit C)",
+    "m_8": "load mass m > 60 t (load limit C)",
+    "m_9": "load mass m > 60 t (load limit C)",
+    "m_10": "load mass m > 60 t (load limit C)",
+    # mm
+    "mm_1": "load mass m > 80 t (load limit C)",
+    "mm_2": "load mass m > 80 t (load limit C)",
+    "mm_3": "load mass m > 80 t (load limit C)",
+    # n
+    "n_1": "loading mass m > 60 t (load limit C)",
+    "n_2": "loading mass m > 60 t (load limit C)",
+    "n_3": "loading mass m > 60 t (load limit C)",
+    "n_4": "loading mass m > 60 t (load limit C)",
+    "n_5": "loading mass m > 60 t (load limit C)",
+    "n_6": "loading mass m > 60 t (load limit C)",
+    "n_7": "loading mass m > 60 t (load limit C)",
+    # o
+    "o_1": "not front tiltable",
+    "o_2": "not front tiltable",
+    "o_3": "not front tiltable",
+    "o_4": "not front tiltable",
+    "o_5": "not front tiltable",
+    "o_6": "not front tiltable",
+    "o_7": "not front tiltable",
+    # oo
+    "oo_1": "not tiltable",
+    "oo_2": "not tiltable",
+    # p
+    "p_1": "pneumatic emptying device",
+    "p_2": "pneumatic emptying device",
+    "p_3": "pneumatic emptying device",
+    "p_4": "pneumatic emptying device",
+    # pp
+    "pp_1": "pneumatic emptying device (double)",
+    "pp_2": "pneumatic emptying device (double)",
+    # q
+    "q_1": "with EP brake",
+    # qq
+    "qq_1": "with EP brake (higher)",
+    # r
+    "r_1": "approved for trains up to 100 km/h",
+    "r_2": "approved for trains up to 100 km/h",
+    # rr
+    "rr_1": "approved for trains up to 100 km/h (higher)",
+    # s
+    "s_1": "approved for trains up to 100 km/h",
+    # ss
+    "ss_1": "approved for trains up to 120 km/h",
+}
+
+
+def _resolve_letter_description(letter_code: str, wagon_class_letter: str) -> str:
+    """
+    Given a single lowercase letter code (e.g. 'a') and the wagon class
+    letter (e.g. 'E'), return the human-readable description string.
+    Falls back to the raw key suffix if not in the translation table.
+    """
+    entry = _FREIGHT_DESCRIPTIONS_RAW.get(letter_code, {})
+    for i18n_key, wagon_list in entry.items():
+        if wagon_class_letter in wagon_list:
+            # Key looks like "uic_freight_codes_a_1" → suffix = "a_1"
+            suffix = "_".join(i18n_key.split("_")[-2:])
+            # Handle m_10 (3-part suffix)
+            parts = i18n_key.split("_")
+            # strip the "uic_freight_codes_" prefix (4 parts) and rejoin
+            suffix = "_".join(parts[3:])
+            return _FREIGHT_CODE_DESCRIPTIONS.get(suffix, suffix)
+    return letter_code  # fallback: just return the raw code
 
 
 # Wagon class lookup: d4 digit → (number_code, letter_code, description)
@@ -70,25 +261,15 @@ _WAGON_CLASS = {
 #   d0  d1  d2  d3  d4  d5  d6  d7  d8  d9 d10 d11
 #   [0] [1] [2] [3] [4] [5] [6] [7] [8] [9][10][11]
 #
-#   d0      – wagon category / type group
-#   d1      – wagon type / subtype qualifier
-#   d0-d1   – together determine the wagon category (passenger/freight/special)
-#   d2-d3   – country code (string, zero-padded to 2 digits)
+#   d0-d1   – interoperability / wagon type code
+#   d2-d3   – country code
 #   d4-d8   – series / individual number
-#   d9      – used together with d0-d3 for freight letter-code classification
+#   d9      – used for freight letter-code classification
 #   d11     – check digit
-#
-# Freight letter code resolution uses the 3-level nested map:
-#   [str(d0)] → [d1+d2 zero-padded to 2 digits? No → d2d3] → [str(d9)]
-#
-# From the Dart source, the freight classification key structure is:
-#   level-1 key = str(d0)                   e.g. "0"
-#   level-2 key = zero_pad(d2d3, 2)         e.g. "05"  (digits 2 and 3 = country digits)
-#   level-3 key = str(d9)                   e.g. "7"
 #
 # Wagon category is determined by d0:
 #   0-3   → freight wagon
-#   4-8   → special/service/infrastructure wagon  (treated as "special" here)
+#   4-8   → special/service/infrastructure wagon
 #   9     → passenger/coaching stock
 
 _WAGON_CATEGORY_BY_D0 = {
@@ -108,8 +289,9 @@ class UICWagonDecodeResult:
     __slots__ = (
         "raw", "valid", "check_digit_ok",
         "country_code", "country_name", "country_letter_code",
-        "wagon_category",         # "freight" | "passenger" | "special"
-        "freight_letter_codes",   # list[str] – individual characters, freight only
+        "wagon_category",
+        "freight_letter_codes",   # list[str]
+        "freight_letter_descs",   # list[tuple[str, str]] – (letter, description)
         "d0", "d1", "d2d3", "d4_d8", "d9", "d10", "d11",
     )
 
@@ -117,6 +299,7 @@ class UICWagonDecodeResult:
         for s in self.__slots__:
             setattr(self, s, None)
         self.freight_letter_codes = []
+        self.freight_letter_descs = []
         self.valid = False
         self.check_digit_ok = False
 
@@ -125,15 +308,10 @@ class UICWagonDecodeResult:
 
 
 def _luhn_check(digits: str) -> bool:
-    """
-    UIC uses a variant of the Luhn algorithm.
-    Multiply alternate digits (starting from the rightmost non-check digit)
-    by 2; sum all digits of the products; total mod 10 == 0.
-    """
     total = 0
     for i, ch in enumerate(reversed(digits)):
         n = int(ch)
-        if i % 2 == 1:          # every second digit from right
+        if i % 2 == 1:
             n *= 2
             if n > 9:
                 n -= 9
@@ -142,30 +320,15 @@ def _luhn_check(digits: str) -> bool:
 
 
 def _resolve_freight_letter_codes(d0: str, d2d3: str, d9: str) -> list[str]:
-    """
-    Look up the letter-code string in the 3-level nested freight map and
-    return its characters as a sorted, deduplicated list.
-
-    Returns [] when no entry is found (not an error – many combinations
-    have no mapping).
-    """
     level1 = _FREIGHT_CLASSIFICATION.get(d0, {})
     level2 = level1.get(d2d3, {})
-    raw = level2.get(d9, "")
-    raw = raw.strip()
+    raw = level2.get(d9, "").strip()
     if not raw:
         return []
-    return sorted(set(raw))       # deduplicate + sort, like the Dart UI does
+    return sorted(set(raw))
 
 
 def decode_uic_evn(raw: str) -> UICWagonDecodeResult:
-    """
-    Decode a UIC EVN (European Vehicle Number).
-
-    Accepts the 12-digit string with or without spaces / dashes.
-    Returns a UICWagonDecodeResult; check result.valid before using
-    any other field.
-    """
     result = UICWagonDecodeResult()
     result.raw = raw
 
@@ -182,23 +345,28 @@ def decode_uic_evn(raw: str) -> UICWagonDecodeResult:
     result.d10   = digits[10]
     result.d11   = digits[11]
 
-    # Check digit (digit 11 = last)
     result.check_digit_ok = _luhn_check(digits)
 
-    # Country
     country = _COUNTRY_BY_CODE.get(result.d2d3, {})
     result.country_code        = result.d2d3
     result.country_name        = country.get("name")
     result.country_letter_code = country.get("letter_code")
 
-    # Wagon category
     result.wagon_category = _WAGON_CATEGORY_BY_D0.get(result.d0, "unknown")
 
-    # Freight letter codes (only meaningful for freight wagons)
     if result.wagon_category == "freight":
         result.freight_letter_codes = _resolve_freight_letter_codes(
             result.d0, result.d2d3, result.d9
         )
+        # Resolve descriptions using wagon class letter
+        cls_letter = False
+        if result.d4_d8:
+            cls_letter = _WAGON_CLASS.get(result.d4_d8[0], (False, False, False))[1]
+        if cls_letter:
+            result.freight_letter_descs = [
+                (lc, _resolve_letter_description(lc, cls_letter))
+                for lc in result.freight_letter_codes
+            ]
 
     return result
 
@@ -211,10 +379,9 @@ class RailWagonMixin(models.AbstractModel):
     Mix into any wagon / rolling-stock model to get UIC decoding fields.
 
     Usage:
-        class MyWagon(models.Model, RailWagonMixin):
+        class MyWagon(models.Model):
             _name = "my.wagon"
             _inherit = ["rail.wagon.mixin"]
-            ...
     """
     _name = "rail.wagon.mixin"
     _description = "UIC Wagon Code Mixin"
@@ -255,20 +422,22 @@ class RailWagonMixin(models.AbstractModel):
         string="Class Description",
         compute="_compute_uic_decoded", store=True,
     )
+    uic_classification_code = fields.Char(
+        string="Classification Code",
+        compute="_compute_uic_decoded", store=True,
+        help="Combined wagon class letter + freight letter codes (e.g. 'Eanos').",
+    )
     uic_country_code = fields.Char(
         string="Country Code",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
     uic_country_name = fields.Char(
         string="Country",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
     uic_country_letter = fields.Char(
         string="Country Letter Code",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
     uic_wagon_category = fields.Selection(
         selection=[
@@ -278,25 +447,39 @@ class RailWagonMixin(models.AbstractModel):
             ("unknown",   "Unknown"),
         ],
         string="Wagon Category",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
     uic_freight_letter_codes = fields.Char(
         string="Freight Letter Codes",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
         help="Individual letter codes from ERA Appendix 6 / P9 table, "
-             "space-separated.  Only populated for freight wagons.",
+             "space-separated. Only populated for freight wagons.",
     )
+    # Individual letter code description fields (up to 8 codes per wagon)
+    uic_lc1_code = fields.Char(string="Code 1", compute="_compute_uic_decoded", store=True)
+    uic_lc1_desc = fields.Char(string="Description 1", compute="_compute_uic_decoded", store=True)
+    uic_lc2_code = fields.Char(string="Code 2", compute="_compute_uic_decoded", store=True)
+    uic_lc2_desc = fields.Char(string="Description 2", compute="_compute_uic_decoded", store=True)
+    uic_lc3_code = fields.Char(string="Code 3", compute="_compute_uic_decoded", store=True)
+    uic_lc3_desc = fields.Char(string="Description 3", compute="_compute_uic_decoded", store=True)
+    uic_lc4_code = fields.Char(string="Code 4", compute="_compute_uic_decoded", store=True)
+    uic_lc4_desc = fields.Char(string="Description 4", compute="_compute_uic_decoded", store=True)
+    uic_lc5_code = fields.Char(string="Code 5", compute="_compute_uic_decoded", store=True)
+    uic_lc5_desc = fields.Char(string="Description 5", compute="_compute_uic_decoded", store=True)
+    uic_lc6_code = fields.Char(string="Code 6", compute="_compute_uic_decoded", store=True)
+    uic_lc6_desc = fields.Char(string="Description 6", compute="_compute_uic_decoded", store=True)
+    uic_lc7_code = fields.Char(string="Code 7", compute="_compute_uic_decoded", store=True)
+    uic_lc7_desc = fields.Char(string="Description 7", compute="_compute_uic_decoded", store=True)
+    uic_lc8_code = fields.Char(string="Code 8", compute="_compute_uic_decoded", store=True)
+    uic_lc8_desc = fields.Char(string="Description 8", compute="_compute_uic_decoded", store=True)
+
     uic_check_digit_ok = fields.Boolean(
         string="Check Digit Valid",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
     uic_decode_valid = fields.Boolean(
         string="EVN Parseable",
-        compute="_compute_uic_decoded",
-        store=True,
+        compute="_compute_uic_decoded", store=True,
     )
 
     @api.depends("uic_evn")
@@ -330,7 +513,7 @@ class RailWagonMixin(models.AbstractModel):
                 elif 20 <= type_int <= 29:
                     fwt, gauge, axle = "TEN/COTIF RIV", "Variable gauge", "Single axles"
                 elif 30 <= type_int <= 39:
-                    fwt, gauge, axle = "TEN/COTIF RIV", "Variable gauge", "Bogies"
+                    fwt, gauge, axle = "TEN/COTIF RIV", "Fixed gauge", "Bogies"
                 elif 40 <= type_int <= 49:
                     fwt, gauge, axle = "Other", "Fixed/variable gauge", "Single axles"
                 elif 80 <= type_int <= 89:
@@ -339,24 +522,40 @@ class RailWagonMixin(models.AbstractModel):
             rec.uic_gauge_type         = gauge
             rec.uic_axle_type          = axle
 
-            # ── Wagon class from d4 (first digit of series) ───────────────────
+            # ── Wagon class from d4 ────────────────────────────────────────────
+            cls_letter = False
             if res.valid and res.wagon_category == "freight" and res.d4_d8:
                 cls = _WAGON_CLASS.get(res.d4_d8[0], (False, False, False))
                 rec.uic_wagon_class_number = cls[0]
                 rec.uic_wagon_class_letter = cls[1]
                 rec.uic_wagon_class_desc   = cls[2]
+                cls_letter = cls[1]
             else:
                 rec.uic_wagon_class_number = False
                 rec.uic_wagon_class_letter = False
                 rec.uic_wagon_class_desc   = False
 
+            # ── Combined classification code e.g. "Eanos" ─────────────────────
+            if cls_letter and res.freight_letter_codes:
+                rec.uic_classification_code = cls_letter + "".join(res.freight_letter_codes)
+            elif cls_letter:
+                rec.uic_classification_code = cls_letter
+            else:
+                rec.uic_classification_code = False
+
+            # ── Individual letter code descriptions ────────────────────────────
+            descs = res.freight_letter_descs or []
+            for i in range(1, 9):
+                if i <= len(descs):
+                    setattr(rec, f"uic_lc{i}_code", descs[i - 1][0])
+                    setattr(rec, f"uic_lc{i}_desc", descs[i - 1][1])
+                else:
+                    setattr(rec, f"uic_lc{i}_code", False)
+                    setattr(rec, f"uic_lc{i}_desc", False)
+
     # ── Utility methods ────────────────────────────────────────────────────────
 
     def action_decode_uic(self):
-        """
-        Call from a button to re-trigger decoding and show a wizard-style
-        notification with the result.  Returns an ir.actions.client action.
-        """
         self.ensure_one()
         res = decode_uic_evn(self.uic_evn or "")
         if not res.valid:
@@ -390,6 +589,5 @@ class RailWagonMixin(models.AbstractModel):
         }
 
     def get_uic_decode_dict(self) -> dict:
-        """Return the full decoded result as a plain dict (useful in RPC / tests)."""
         self.ensure_one()
         return decode_uic_evn(self.uic_evn or "").to_dict()
