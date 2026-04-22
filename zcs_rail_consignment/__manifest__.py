@@ -8,8 +8,6 @@
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
-        "views/rail_company_code_views.xml",
-        "views/rail_consignment_views.xml",
         "views/rail_uic_wagon_views.xml",
         "views/menu.xml",
     ],
