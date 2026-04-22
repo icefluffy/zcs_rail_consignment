@@ -3,3 +3,4 @@
 from . import uic_wagon_mixin          # ← load data + register mixin first
 from . import rail_company_code
 from . import rail_consignment
+from . import rail_uic_wagon

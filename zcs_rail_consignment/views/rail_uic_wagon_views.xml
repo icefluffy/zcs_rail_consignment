@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_rail_uic_wagon_form" model="ir.ui.view">
+            <field name="name">rail.uic.wagon.form</field>
+            <field name="model">rail.uic.wagon</field>
+            <field name="arch" type="xml">
+                <form string="UIC Wagon Decoder">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="uic_evn"/>
+                        </group>
+                        <group string="Decoded Result">
+                            <group>
+                                <field name="uic_decode_valid"/>
+                                <field name="uic_check_digit_ok"/>
+                                <field name="uic_wagon_category"/>
+                            </group>
+                            <group>
+                                <field name="uic_country_code"/>
+                                <field name="uic_country_name"/>
+                                <field name="uic_country_letter"/>
+                            </group>
+                        </group>
+                        <group string="Freight Classification"
+                               attrs="{'invisible': [('uic_wagon_category', '!=', 'freight')]}">
+                            <field name="uic_freight_letter_codes"/>
+                        </group>
+                        <group string="Notes">
+                            <field name="notes" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_rail_uic_wagon_list" model="ir.ui.view">
+            <field name="name">rail.uic.wagon.list</field>
+            <field name="model">rail.uic.wagon</field>
+            <field name="arch" type="xml">
+                <list string="UIC Wagon Lookups">
+                    <field name="name"/>
+                    <field name="uic_evn"/>
+                    <field name="uic_country_name"/>
+                    <field name="uic_wagon_category"/>
+                    <field name="uic_freight_letter_codes"/>
+                    <field name="uic_check_digit_ok"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_rail_uic_wagon" model="ir.actions.act_window">
+            <field name="name">UIC Wagon Decoder</field>
+            <field name="res_model">rail.uic.wagon</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+    </data>
+</odoo>
